@@ -79,7 +79,10 @@ export default function Home() {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareApplicationSchema) }}
         />
 
-        <Reveal id="hero" className="grid items-center gap-8 rounded-3xl border border-border bg-card/80 p-6 sm:p-10 lg:grid-cols-[1.1fr_0.9fr]">
+        <Reveal
+          id="hero"
+          className="scroll-mt-24 grid items-center gap-8 rounded-3xl border border-border bg-card/80 p-6 sm:p-10 lg:grid-cols-[1.1fr_0.9fr]"
+        >
           <div className="space-y-6">
             <p className="inline-flex rounded-full border border-border bg-black/30 px-3 py-1 text-xs uppercase tracking-[0.18em] text-zinc-400">
               Doku by Listolabs
@@ -104,7 +107,7 @@ export default function Home() {
           </div>
         </Reveal>
 
-        <Reveal id="problem" className="space-y-6" delay={0.03}>
+        <Reveal id="problem" className="scroll-mt-24 space-y-6" delay={0.03}>
           <div className="space-y-2">
             <p className="text-xs uppercase tracking-[0.2em] text-zinc-500">The Problem</p>
             <h2 className="text-3xl font-semibold text-white sm:text-4xl">The Folder Fallacy</h2>
@@ -122,7 +125,7 @@ export default function Home() {
           </div>
         </Reveal>
 
-        <Reveal id="solution" className="space-y-6" delay={0.05}>
+        <Reveal id="solution" className="scroll-mt-24 space-y-6" delay={0.05}>
           <div className="space-y-2">
             <p className="text-xs uppercase tracking-[0.2em] text-zinc-500">The Solution</p>
             <h2 className="text-3xl font-semibold text-white sm:text-4xl">The Doku Method</h2>
@@ -140,7 +143,7 @@ export default function Home() {
           </div>
         </Reveal>
 
-        <Reveal id="deep-dive" className="space-y-6" delay={0.08}>
+        <Reveal id="deep-dive" className="scroll-mt-24 space-y-6" delay={0.08}>
           <div className="space-y-2">
             <p className="text-xs uppercase tracking-[0.2em] text-zinc-500">The Deep Dive</p>
             <h2 className="text-3xl font-semibold text-white sm:text-4xl">Product walkthrough placeholders</h2>
@@ -161,7 +164,7 @@ export default function Home() {
           </div>
         </Reveal>
 
-        <Reveal id="playbook" className="space-y-6" delay={0.1}>
+        <Reveal id="playbook" className="scroll-mt-24 space-y-6" delay={0.1}>
           <div className="space-y-2">
             <p className="text-xs uppercase tracking-[0.2em] text-zinc-500">The Playbook</p>
             <h2 className="text-3xl font-semibold text-white sm:text-4xl">How to use Doku effectively</h2>
@@ -169,7 +172,7 @@ export default function Home() {
           <PlaybookTabs />
         </Reveal>
 
-        <Reveal id="trust" className="space-y-6" delay={0.12}>
+        <Reveal id="trust" className="scroll-mt-24 space-y-6" delay={0.12}>
           <div className="space-y-2">
             <p className="text-xs uppercase tracking-[0.2em] text-zinc-500">The Trust Layer</p>
             <h2 className="text-3xl font-semibold text-white sm:text-4xl">Questions worth asking</h2>
@@ -202,41 +205,60 @@ export default function Home() {
         </Reveal>
 
         <footer className="rounded-2xl border border-border bg-card p-6">
-          <div className="flex flex-col justify-between gap-5 sm:flex-row sm:items-center">
-            <p className="text-sm text-zinc-400">Built by Listolabs</p>
-            <div className="flex gap-3">
-              <a
-                href="#"
-                aria-label="App Store"
-                className="group flex min-w-40 items-center gap-3 rounded-xl border border-border bg-black/30 px-4 py-2 transition hover:border-zinc-500"
-              >
-                <span className="inline-flex size-8 items-center justify-center rounded-lg border border-zinc-700 bg-zinc-900 text-zinc-300">
-                  <svg viewBox="0 0 24 24" aria-hidden="true" className="size-4 fill-current">
-                    <path d="M16.36 12.42c.02 2.02 1.77 2.7 1.79 2.71-.01.05-.28.95-.94 1.87-.56.79-1.15 1.58-2.07 1.6-.9.02-1.19-.53-2.23-.53-1.04 0-1.36.52-2.2.55-.88.03-1.56-.88-2.12-1.67-1.14-1.62-2-4.56-.84-6.58.58-1 1.62-1.64 2.74-1.66.86-.02 1.67.58 2.2.58.53 0 1.53-.72 2.58-.62.44.02 1.66.18 2.45 1.33-.06.04-1.46.86-1.36 2.42ZM14.65 6.17c.47-.57.8-1.35.71-2.14-.68.03-1.49.45-1.98 1.02-.44.5-.83 1.31-.73 2.08.76.06 1.53-.38 2-.96Z" />
-                  </svg>
-                </span>
-                <span className="leading-tight">
-                  <span className="block text-[10px] uppercase tracking-[0.12em] text-zinc-500">
-                    Download on the
+          <div className="flex flex-col gap-5">
+            <div className="flex flex-wrap items-center gap-2 text-xs text-zinc-400">
+              <a href="#" className="rounded-md border border-transparent px-2 py-1 transition hover:border-border hover:text-zinc-200">
+                Privacy Policy
+              </a>
+              <a href="#" className="rounded-md border border-transparent px-2 py-1 transition hover:border-border hover:text-zinc-200">
+                Terms
+              </a>
+              <a href="#" className="rounded-md border border-transparent px-2 py-1 transition hover:border-border hover:text-zinc-200">
+                Support
+              </a>
+              <a href="#" className="rounded-md border border-transparent px-2 py-1 transition hover:border-border hover:text-zinc-200">
+                Contact
+              </a>
+            </div>
+            <div className="flex flex-col justify-between gap-5 sm:flex-row sm:items-center">
+              <p className="text-sm text-zinc-400">Built by Listolabs</p>
+              <div className="flex gap-3">
+                <a
+                  href="#"
+                  aria-label="App Store"
+                  className="group flex min-w-40 items-center gap-3 rounded-xl border border-border bg-black/30 px-4 py-2 transition hover:border-zinc-500"
+                >
+                  <span className="inline-flex size-8 items-center justify-center rounded-lg border border-zinc-700 bg-zinc-900 text-zinc-300">
+                    <svg viewBox="0 0 24 24" aria-hidden="true" className="size-4 fill-current">
+                      <path d="M16.36 12.42c.02 2.02 1.77 2.7 1.79 2.71-.01.05-.28.95-.94 1.87-.56.79-1.15 1.58-2.07 1.6-.9.02-1.19-.53-2.23-.53-1.04 0-1.36.52-2.2.55-.88.03-1.56-.88-2.12-1.67-1.14-1.62-2-4.56-.84-6.58.58-1 1.62-1.64 2.74-1.66.86-.02 1.67.58 2.2.58.53 0 1.53-.72 2.58-.62.44.02 1.66.18 2.45 1.33-.06.04-1.46.86-1.36 2.42ZM14.65 6.17c.47-.57.8-1.35.71-2.14-.68.03-1.49.45-1.98 1.02-.44.5-.83 1.31-.73 2.08.76.06 1.53-.38 2-.96Z" />
+                    </svg>
                   </span>
-                  <span className="block text-sm font-medium text-zinc-200 group-hover:text-white">App Store</span>
-                </span>
-              </a>
-              <a
-                href="#"
-                aria-label="Play Store"
-                className="group flex min-w-40 items-center gap-3 rounded-xl border border-border bg-black/30 px-4 py-2 transition hover:border-zinc-500"
-              >
-                <span className="inline-flex size-8 items-center justify-center rounded-lg border border-zinc-700 bg-zinc-900 text-zinc-300">
-                  <svg viewBox="0 0 24 24" aria-hidden="true" className="size-4 fill-current">
-                    <path d="M4.65 3.38a1.18 1.18 0 0 0-.65 1.05v15.14c0 .44.23.83.59 1.05L13.1 12 4.65 3.38Zm9.37 7.86 2.69-2.67-9.9-5.43 7.2 8.1Zm3.66-1.93-2.9 2.88 2.91 2.91 2.82-1.55c1-.55 1.01-1.98.01-2.53l-2.84-1.71Zm-3.65 3.44-7.16 8.08 9.83-5.41-2.67-2.67Z" />
-                  </svg>
-                </span>
-                <span className="leading-tight">
-                  <span className="block text-[10px] uppercase tracking-[0.12em] text-zinc-500">Get it on</span>
-                  <span className="block text-sm font-medium text-zinc-200 group-hover:text-white">Google Play</span>
-                </span>
-              </a>
+                  <span className="leading-tight">
+                    <span className="block text-[10px] uppercase tracking-[0.12em] text-zinc-500">
+                      Download on the
+                    </span>
+                    <span className="block text-sm font-medium text-zinc-200 group-hover:text-white">App Store</span>
+                  </span>
+                </a>
+                <a
+                  href="#"
+                  aria-label="Play Store"
+                  className="group flex min-w-40 items-center gap-3 rounded-xl border border-border bg-black/30 px-4 py-2 transition hover:border-zinc-500"
+                >
+                  <span className="inline-flex size-8 items-center justify-center rounded-lg border border-zinc-700 bg-zinc-900 text-zinc-300">
+                    <svg viewBox="0 0 24 24" aria-hidden="true" className="size-4 fill-current">
+                      <path d="M4.65 3.38a1.18 1.18 0 0 0-.65 1.05v15.14c0 .44.23.83.59 1.05L13.1 12 4.65 3.38Zm9.37 7.86 2.69-2.67-9.9-5.43 7.2 8.1Zm3.66-1.93-2.9 2.88 2.91 2.91 2.82-1.55c1-.55 1.01-1.98.01-2.53l-2.84-1.71Zm-3.65 3.44-7.16 8.08 9.83-5.41-2.67-2.67Z" />
+                    </svg>
+                  </span>
+                  <span className="leading-tight">
+                    <span className="block text-[10px] uppercase tracking-[0.12em] text-zinc-500">Get it on</span>
+                    <span className="block text-sm font-medium text-zinc-200 group-hover:text-white">Google Play</span>
+                  </span>
+                </a>
+              </div>
+            </div>
+            <div className="flex gap-3">
+              <span className="text-xs text-zinc-600">Add final links before launch.</span>
             </div>
           </div>
         </footer>
