@@ -1,5 +1,6 @@
 import { CursorGlow } from "@/components/cursor-glow";
 import { FolderFallacyCard } from "@/components/folder-fallacy-card";
+import { MultiEntityEngineGraphic } from "@/components/multi-entity-engine";
 import { PlaybookTabs } from "@/components/playbook-tabs";
 import { Reveal } from "@/components/reveal";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
@@ -10,6 +11,7 @@ const navItems = [
   { href: "#hero", label: "Hero" },
   { href: "#problem", label: "Problem" },
   { href: "#solution", label: "Solution" },
+  { href: "#multi-entity", label: "Engine" },
   { href: "#deep-dive", label: "Deep Dive" },
   { href: "#playbook", label: "Playbook" },
   { href: "#trust", label: "Trust" },
@@ -40,7 +42,7 @@ const methodCards: { icon: LucideIcon; title: string; text: string }[] = [
   {
     icon: Layers,
     title: "Systematic Cataloging",
-    text: "You provide the document. Doku keeps a clean, retrievable index without manual folder gymnastics.",
+    text: 'You define the document type; Doku handles the architecture. Every file is instantly indexed and precision-named—no more manual folder gymnastics or "Final_v2" filenames.',
   },
   {
     icon: Bell,
@@ -55,7 +57,7 @@ const methodCards: { icon: LucideIcon; title: string; text: string }[] = [
   {
     icon: Briefcase,
     title: "Instant Collation",
-    text: "Collect everything needed for a visa, loan, or application in one deliberate tap.",
+    text: "Gather everything needed for a Home Loan or a Family Visa by simply selecting the relevant Profiles and Entities. Doku pulls the right docs from the right places instantly.",
   },
 ];
 
@@ -187,6 +189,38 @@ export default function Home() {
               );
             })}
           </div>
+        </Reveal>
+
+        <Reveal id="multi-entity" className="scroll-mt-24 space-y-8" delay={0.065}>
+          <div className="max-w-3xl space-y-4">
+            <p className="text-xs uppercase tracking-[0.2em] text-zinc-500">The Multi-Entity Engine</p>
+            <h2 className="text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+              Your life isn&apos;t a single stream of data.
+            </h2>
+            <div className="flex flex-wrap gap-2 text-xs text-zinc-500">
+              <span className="rounded-full border border-sky-500/25 bg-sky-500/10 px-2.5 py-1 font-medium text-sky-200/90">
+                Profiles
+              </span>
+              <span className="rounded-full border border-white/10 bg-white/5 px-2.5 py-1 text-zinc-400">
+                Me · Spouse · Kids · Parents
+              </span>
+              <span className="rounded-full border border-sky-500/25 bg-sky-500/10 px-2.5 py-1 font-medium text-sky-200/90">
+                Entities
+              </span>
+              <span className="rounded-full border border-white/10 bg-white/5 px-2.5 py-1 text-zinc-400">
+                My car · My house · My job
+              </span>
+            </div>
+            <p className="text-sm leading-relaxed text-zinc-400">
+              A document only earns its keep when it&apos;s tied to the right person or thing. Flip between profiles and
+              entities in one gesture—no relabeling, no duplicate folders.
+            </p>
+            <blockquote className="border-l-2 border-sky-500/45 pl-4 text-base italic leading-snug text-zinc-200">
+              Looking for your daughter&apos;s immunization record? Don&apos;t search for &quot;Medical.&quot; Just tap
+              her Profile.
+            </blockquote>
+          </div>
+          <MultiEntityEngineGraphic />
         </Reveal>
 
         <Reveal id="deep-dive" className="scroll-mt-24 space-y-6" delay={0.08}>
