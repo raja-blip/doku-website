@@ -1,0 +1,5 @@
+Project: Doku Landing Page
+Description: High-contrast landing page for Doku, an AI-powered personal document manager.
+Stack: Next.js App Router, Tailwind CSS, Framer Motion, Radix Accordion, React Compare Slider.
+Primary Message: "Your life isn't a file system."
+Audience: People struggling with document sprawl in DigiLocker and Google Drive.
