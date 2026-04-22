@@ -2,7 +2,7 @@
 
 import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 const screens = [
   {
@@ -91,22 +91,14 @@ export function ScreenshotStrip() {
   const [current, setCurrent] = useState(0);
   const active = screens[current];
 
-  useEffect(() => {
-    const timer = window.setInterval(() => {
-      setCurrent((prev) => (prev + 1) % screens.length);
-    }, 4500);
-
-    return () => window.clearInterval(timer);
-  }, []);
-
   const goTo = (index: number) => setCurrent(index);
   const goPrev = () => setCurrent((prev) => (prev - 1 + screens.length) % screens.length);
   const goNext = () => setCurrent((prev) => (prev + 1) % screens.length);
 
   return (
-    <div className="grid items-center gap-6 lg:grid-cols-[0.95fr_1.05fr]">
-      <div className="space-y-3">
-        <div className="relative overflow-hidden rounded-3xl border border-border bg-card p-3">
+    <div className="grid items-center gap-6 lg:grid-cols-[0.75fr_1.25fr]">
+      <div className="order-2 space-y-3 lg:order-1 lg:max-w-sm">
+        <div className="relative mx-auto overflow-hidden rounded-3xl border border-border bg-card p-3">
           <AnimatePresence mode="wait">
             <motion.div
               key={active.src}
@@ -114,13 +106,24 @@ export function ScreenshotStrip() {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -16 }}
               transition={{ duration: 0.35, ease: "easeOut" }}
+              drag="x"
+              dragConstraints={{ left: 0, right: 0 }}
+              dragElastic={0.25}
+              onDragEnd={(_, info) => {
+                if (info.offset.x > 60) {
+                  goPrev();
+                } else if (info.offset.x < -60) {
+                  goNext();
+                }
+              }}
+              className="touch-pan-y"
             >
               <Image
                 src={active.src}
                 alt={active.alt}
                 width={900}
                 height={1900}
-                className="aspect-[9/18] w-full rounded-2xl border border-border object-cover"
+                className="mx-auto aspect-[9/18] w-full max-w-[280px] rounded-2xl border border-border object-cover sm:max-w-[300px]"
               />
             </motion.div>
           </AnimatePresence>
@@ -156,7 +159,7 @@ export function ScreenshotStrip() {
       <AnimatePresence mode="wait">
         <motion.div
           key={active.title}
-          className="rounded-3xl border border-border bg-card p-6 sm:p-8"
+          className="order-1 rounded-3xl border border-border bg-card p-6 sm:p-8 lg:order-2"
           initial={{ opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -18 }}
