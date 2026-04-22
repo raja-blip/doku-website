@@ -1,43 +1,181 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
+import { useEffect, useState } from "react";
 
-const shots = [
-  { src: "/app-screenshots/screen-01.png", alt: "Doku app screenshot 1" },
-  { src: "/app-screenshots/screen-02.png", alt: "Doku app screenshot 2" },
-  { src: "/app-screenshots/screen-03.png", alt: "Doku app screenshot 3" },
-  { src: "/app-screenshots/screen-04.png", alt: "Doku app screenshot 4" },
-  { src: "/app-screenshots/screen-05.png", alt: "Doku app screenshot 5" },
-  { src: "/app-screenshots/screen-06.png", alt: "Doku app screenshot 6" },
-  { src: "/app-screenshots/screen-07.png", alt: "Doku app screenshot 7" },
-  { src: "/app-screenshots/screen-08.png", alt: "Doku app screenshot 8" },
-  { src: "/app-screenshots/screen-09.png", alt: "Doku app screenshot 9" },
-  { src: "/app-screenshots/screen-10.png", alt: "Doku app screenshot 10" },
+const screens = [
+  {
+    src: "/app-screenshots/screen-01.png",
+    alt: "Doku app screenshot 1",
+    title: "One home for every critical document",
+    description:
+      "Bring PAN, passport, insurance, and bills into one unified, searchable workspace.",
+    bullets: ["Unified dashboard", "Zero folder hunting", "Fast mobile-first navigation"],
+  },
+  {
+    src: "/app-screenshots/screen-02.png",
+    alt: "Doku app screenshot 2",
+    title: "AI categories that organize for you",
+    description:
+      "Doku auto-tags files by document type so your records stay clean without manual effort.",
+    bullets: ["Smart taxonomy", "Context-aware labels", "No manual naming overhead"],
+  },
+  {
+    src: "/app-screenshots/screen-03.png",
+    alt: "Doku app screenshot 3",
+    title: "OCR search to the exact page",
+    description:
+      "Ask in plain language and jump directly to the section you need in seconds.",
+    bullets: ["Semantic search", "Page-level retrieval", "Natural language queries"],
+  },
+  {
+    src: "/app-screenshots/screen-04.png",
+    alt: "Doku app screenshot 4",
+    title: "Expiry intelligence that keeps you ahead",
+    description:
+      "Track passports, policies, and certificates with timely reminders before deadlines.",
+    bullets: ["Early alerts", "Renewal timelines", "Priority-based reminders"],
+  },
+  {
+    src: "/app-screenshots/screen-05.png",
+    alt: "Doku app screenshot 5",
+    title: "Private by design architecture",
+    description:
+      "Security is built into every flow with encrypted storage and scoped access controls.",
+    bullets: ["Encrypted storage", "Controlled sharing", "Trust-first infrastructure"],
+  },
+  {
+    src: "/app-screenshots/screen-06.png",
+    alt: "Doku app screenshot 6",
+    title: "Document history at a glance",
+    description:
+      "See updates, uploads, and edits instantly so your records are always audit-ready.",
+    bullets: ["Activity visibility", "Version confidence", "Clear ownership"],
+  },
+  {
+    src: "/app-screenshots/screen-07.png",
+    alt: "Doku app screenshot 7",
+    title: "Intelligent reminders and nudges",
+    description:
+      "Doku surfaces next best actions exactly when they matter for your daily workflow.",
+    bullets: ["Smart prompts", "Action recommendations", "Proactive workflows"],
+  },
+  {
+    src: "/app-screenshots/screen-08.png",
+    alt: "Doku app screenshot 8",
+    title: "Clean sharing for real-life collaboration",
+    description:
+      "Share the right document quickly with family, finance teams, or advisors when needed.",
+    bullets: ["Granular access", "Share-ready cards", "Collaboration without chaos"],
+  },
+  {
+    src: "/app-screenshots/screen-09.png",
+    alt: "Doku app screenshot 9",
+    title: "Designed to feel instant on mobile",
+    description:
+      "Smooth transitions, high readability, and performance-tuned rendering on every device.",
+    bullets: ["Low-latency experience", "Readable dark UI", "Optimized touch interactions"],
+  },
+  {
+    src: "/app-screenshots/screen-10.png",
+    alt: "Doku app screenshot 10",
+    title: "From storage to decision intelligence",
+    description:
+      "Doku turns static files into insights so your documents actively work for you.",
+    bullets: ["Insight-driven UX", "Contextual understanding", "Future-ready personal knowledge"],
+  },
 ];
 
 export function ScreenshotStrip() {
+  const [current, setCurrent] = useState(0);
+  const active = screens[current];
+
+  useEffect(() => {
+    const timer = window.setInterval(() => {
+      setCurrent((prev) => (prev + 1) % screens.length);
+    }, 4500);
+
+    return () => window.clearInterval(timer);
+  }, []);
+
+  const goTo = (index: number) => setCurrent(index);
+  const goPrev = () => setCurrent((prev) => (prev - 1 + screens.length) % screens.length);
+  const goNext = () => setCurrent((prev) => (prev + 1) % screens.length);
+
   return (
-    <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-      {shots.map((shot, index) => (
+    <div className="grid items-center gap-6 lg:grid-cols-[0.95fr_1.05fr]">
+      <div className="space-y-3">
+        <div className="relative overflow-hidden rounded-3xl border border-border bg-card p-3">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={active.src}
+              initial={{ opacity: 0, x: 16 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -16 }}
+              transition={{ duration: 0.35, ease: "easeOut" }}
+            >
+              <Image
+                src={active.src}
+                alt={active.alt}
+                width={900}
+                height={1900}
+                className="aspect-[9/18] w-full rounded-2xl border border-border object-cover"
+              />
+            </motion.div>
+          </AnimatePresence>
+        </div>
+        <div className="flex items-center justify-between gap-3">
+          <button
+            onClick={goPrev}
+            className="rounded-full border border-border bg-card px-4 py-2 text-sm text-zinc-200 transition hover:border-zinc-500"
+          >
+            Prev
+          </button>
+          <div className="flex flex-wrap items-center justify-center gap-1.5">
+            {screens.map((screen, index) => (
+              <button
+                key={screen.src}
+                onClick={() => goTo(index)}
+                className={`h-1.5 rounded-full transition-all ${
+                  current === index ? "w-6 bg-sky-400" : "w-3 bg-zinc-700 hover:bg-zinc-500"
+                }`}
+                aria-label={`Go to screenshot ${index + 1}`}
+              />
+            ))}
+          </div>
+          <button
+            onClick={goNext}
+            className="rounded-full border border-border bg-card px-4 py-2 text-sm text-zinc-200 transition hover:border-zinc-500"
+          >
+            Next
+          </button>
+        </div>
+      </div>
+
+      <AnimatePresence mode="wait">
         <motion.div
-          key={shot.src}
-          className="overflow-hidden rounded-2xl border border-border bg-card"
+          key={active.title}
+          className="rounded-3xl border border-border bg-card p-6 sm:p-8"
           initial={{ opacity: 0, y: 18 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.4, delay: index * 0.08 }}
-          whileHover={{ y: -4 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -18 }}
+          transition={{ duration: 0.35, ease: "easeOut" }}
         >
-          <Image
-            src={shot.src}
-            alt={shot.alt}
-            width={900}
-            height={1900}
-            className="aspect-[9/18] w-full object-cover"
-          />
+          <p className="mb-3 inline-flex rounded-full border border-sky-400/30 bg-sky-500/15 px-3 py-1 text-xs text-sky-200">
+            Screen {current + 1} / {screens.length}
+          </p>
+          <h3 className="text-2xl font-semibold text-white sm:text-3xl">{active.title}</h3>
+          <p className="mt-3 text-zinc-300">{active.description}</p>
+          <div className="mt-5 grid gap-2">
+            {active.bullets.map((bullet) => (
+              <p key={bullet} className="rounded-lg border border-border bg-black/20 px-3 py-2 text-sm text-zinc-300">
+                {bullet}
+              </p>
+            ))}
+          </div>
         </motion.div>
-      ))}
+      </AnimatePresence>
     </div>
   );
 }

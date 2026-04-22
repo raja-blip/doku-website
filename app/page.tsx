@@ -59,8 +59,9 @@ export default function Home() {
         <Reveal className="space-y-3" delay={0.03}>
           <h2 className="text-2xl font-semibold text-white sm:text-3xl">Product snapshots</h2>
           <p className="text-sm text-zinc-400">
-            Drop your real app images in <code className="font-mono">public/app-screenshots</code>
-            {" "}as <code className="font-mono">screen-01.png</code>,{" "}
+            Left carousel + right feature story updates per screen. Drop images in{" "}
+            <code className="font-mono">public/app-screenshots</code> as{" "}
+            <code className="font-mono">screen-01.png</code>,{" "}
             <code className="font-mono">screen-02.png</code>,{" "}
             <code className="font-mono">screen-03.png</code> ...{" "}
             <code className="font-mono">screen-10.png</code>.
