@@ -2,6 +2,7 @@ import { CursorGlow } from "@/components/cursor-glow";
 import { PlaybookTabs } from "@/components/playbook-tabs";
 import { Reveal } from "@/components/reveal";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import Image from "next/image";
 
 const navItems = [
   { href: "#hero", label: "Hero" },
@@ -60,7 +61,20 @@ export default function Home() {
   return (
     <CursorGlow>
       <header className="sticky top-0 z-40 border-b border-border/80 bg-[#050505]/80 backdrop-blur-md">
-        <nav className="mx-auto flex w-full max-w-6xl gap-2 overflow-x-auto px-5 py-3 sm:px-8">
+        <nav className="mx-auto flex w-full max-w-6xl items-center gap-2 overflow-x-auto px-5 py-3 sm:px-8">
+          <a
+            href="#hero"
+            aria-label="Doku home"
+            className="mr-2 shrink-0 rounded-full border border-border bg-card p-1 transition hover:border-zinc-500"
+          >
+            <Image
+              src="/app-screenshots/icon.png"
+              alt="Doku app icon"
+              width={24}
+              height={24}
+              className="rounded-full"
+            />
+          </a>
           {navItems.map((item) => (
             <a
               key={item.href}
@@ -221,7 +235,16 @@ export default function Home() {
               </a>
             </div>
             <div className="flex flex-col justify-between gap-5 sm:flex-row sm:items-center">
-              <p className="text-sm text-zinc-400">Built by Listolabs</p>
+              <p className="flex items-center gap-2 text-sm text-zinc-400">
+                <Image
+                  src="/app-screenshots/icon.png"
+                  alt="Doku icon"
+                  width={18}
+                  height={18}
+                  className="rounded-full"
+                />
+                Built by Listolabs
+              </p>
               <div className="flex gap-3">
                 <a
                   href="#"
