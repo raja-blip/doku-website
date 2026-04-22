@@ -7,12 +7,14 @@ type RevealProps = {
   children: ReactNode;
   delay?: number;
   y?: number;
+  id?: string;
   className?: string;
 };
 
-export function Reveal({ children, delay = 0, y = 20, className }: RevealProps) {
+export function Reveal({ children, delay = 0, y = 20, id, className }: RevealProps) {
   return (
     <motion.div
+      id={id}
       className={className}
       initial={{ opacity: 0, y }}
       whileInView={{ opacity: 1, y: 0 }}
