@@ -3,6 +3,7 @@ import { FolderFallacyCard } from "@/components/folder-fallacy-card";
 import { PlaybookTabs } from "@/components/playbook-tabs";
 import { Reveal } from "@/components/reveal";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { Bell, Briefcase, Layers, ShieldCheck, type LucideIcon } from "lucide-react";
 import Image from "next/image";
 
 const navItems = [
@@ -35,20 +36,24 @@ const problemCards = [
   },
 ] as const;
 
-const methodCards = [
+const methodCards: { icon: LucideIcon; title: string; text: string }[] = [
   {
+    icon: Layers,
     title: "Systematic Cataloging",
     text: "You provide the document. Doku keeps a clean, retrievable index without manual folder gymnastics.",
   },
   {
+    icon: Bell,
     title: "Active Management",
     text: "Get clear expiry reminders for critical records like passports and insurance before urgency kicks in.",
   },
   {
+    icon: ShieldCheck,
     title: "Zero-AI Privacy",
     text: "100% on-device flow with no cloud reading and no OCR leakage to third-party servers.",
   },
   {
+    icon: Briefcase,
     title: "Instant Collation",
     text: "Collect everything needed for a visa, loan, or application in one deliberate tap.",
   },
@@ -161,16 +166,26 @@ export default function Home() {
             <p className="text-xs uppercase tracking-[0.2em] text-zinc-500">The Solution</p>
             <h2 className="text-3xl font-semibold text-white sm:text-4xl">The Doku Method</h2>
           </div>
-          <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
-            {methodCards.map((card) => (
-              <article
-                key={card.title}
-                className="rounded-2xl border border-border bg-card p-5 transition duration-300 hover:border-zinc-600"
-              >
-                <h3 className="mb-2 text-base font-medium text-white">{card.title}</h3>
-                <p className="text-sm leading-relaxed text-zinc-400">{card.text}</p>
-              </article>
-            ))}
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:items-stretch xl:grid-cols-4">
+            {methodCards.map((card) => {
+              const Icon = card.icon;
+              return (
+                <article
+                  key={card.title}
+                  className="group flex h-full flex-row items-start gap-4 rounded-2xl border border-white/10 bg-white/10 p-6 backdrop-blur-md transition duration-300 hover:border-sky-400/25 sm:flex-col sm:gap-4"
+                >
+                  <Icon
+                    aria-hidden
+                    strokeWidth={1}
+                    className="size-8 shrink-0 text-sky-400 transition-[transform,filter] duration-200 ease-out [filter:drop-shadow(0_0_10px_rgba(56,189,248,0.45))] group-hover:scale-110 group-hover:[filter:drop-shadow(0_0_20px_rgba(56,189,248,0.95))_drop-shadow(0_0_6px_rgba(56,189,248,0.6))]"
+                  />
+                  <div className="min-w-0 flex-1 sm:flex-none">
+                    <h3 className="mb-2 text-base font-medium text-white">{card.title}</h3>
+                    <p className="text-sm leading-relaxed text-zinc-400">{card.text}</p>
+                  </div>
+                </article>
+              );
+            })}
           </div>
         </Reveal>
 
