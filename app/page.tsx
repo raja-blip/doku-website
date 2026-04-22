@@ -1,4 +1,5 @@
 import { CursorGlow } from "@/components/cursor-glow";
+import { FolderFallacyCard } from "@/components/folder-fallacy-card";
 import { PlaybookTabs } from "@/components/playbook-tabs";
 import { Reveal } from "@/components/reveal";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
@@ -15,18 +16,24 @@ const navItems = [
 
 const problemCards = [
   {
+    image: "/images/problem/problem-1.png",
     title: "The Discipline Gap",
     text: "Most systems still rely on manual naming, filing, and remembering. Consistency breaks under real life.",
+    imageAlt: "Illustration for the discipline gap in document management",
   },
   {
+    image: "/images/problem/problem-2.png",
     title: "The Wild Goose Search",
     text: "When a loan or visa deadline appears, finding the right document becomes a stressful scavenger hunt.",
+    imageAlt: "Illustration for the wild goose search when gathering paperwork",
   },
   {
+    image: "/images/problem/problem-3.png",
     title: "The Silent Expiry",
     text: "Traditional document vaults stay quiet until it is too late. Renewals should not depend on memory.",
+    imageAlt: "Illustration for silent expiry of important documents",
   },
-];
+] as const;
 
 const methodCards = [
   {
@@ -111,12 +118,21 @@ export default function Home() {
           <div className="group relative overflow-hidden rounded-2xl border border-zinc-800 bg-gradient-to-br from-zinc-900 to-black p-5 transition hover:border-zinc-600">
             <div className="mb-4 flex items-center justify-between">
               <span className="rounded-full border border-zinc-700 px-2 py-1 text-[11px] text-zinc-400">
-                App Mockup Placeholder
+                App preview
               </span>
-              <span className="text-[11px] text-zinc-500">390 x 844</span>
+              <span className="text-[11px] text-zinc-500">Home</span>
             </div>
-            <div className="mx-auto h-[24rem] max-w-[14rem] rounded-[2rem] border border-zinc-700 bg-zinc-950 p-3 shadow-2xl shadow-black/60">
-              <div className="h-full rounded-[1.5rem] border border-dashed border-zinc-700 bg-black/70" />
+            <div className="mx-auto w-full max-w-[15rem]">
+              <div className="relative aspect-[9/19.5] w-full overflow-hidden rounded-[2rem] border border-zinc-700 bg-zinc-950 shadow-2xl shadow-black/60 ring-1 ring-white/5">
+                <Image
+                  src="/app-screenshots/app-home.png"
+                  alt="Doku app home screen"
+                  fill
+                  priority
+                  sizes="(max-width: 1024px) 45vw, 240px"
+                  className="object-cover object-[50%_12%]"
+                />
+              </div>
             </div>
           </div>
         </Reveal>
@@ -126,15 +142,16 @@ export default function Home() {
             <p className="text-xs uppercase tracking-[0.2em] text-zinc-500">The Problem</p>
             <h2 className="text-3xl font-semibold text-white sm:text-4xl">The Folder Fallacy</h2>
           </div>
-          <div className="grid gap-4 md:grid-cols-3">
+          <div className="grid gap-4 md:grid-cols-3 md:items-stretch">
             {problemCards.map((card) => (
-              <article
-                key={card.title}
-                className="rounded-2xl border border-border bg-card p-5 transition duration-300 hover:-translate-y-0.5 hover:border-zinc-600"
-              >
-                <h3 className="mb-3 text-lg font-medium text-white">{card.title}</h3>
-                <p className="text-sm leading-relaxed text-zinc-400">{card.text}</p>
-              </article>
+              <div key={card.title} className="min-h-0 md:h-full">
+                <FolderFallacyCard
+                  src={card.image}
+                  title={card.title}
+                  description={card.text}
+                  imageAlt={card.imageAlt}
+                />
+              </div>
             ))}
           </div>
         </Reveal>
