@@ -2,7 +2,7 @@
 
 import { AnimatePresence, motion } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { useCallback, useState } from "react";
+import { useCallback, useState, type TouchEvent } from "react";
 
 type ProTip = {
   id: string;
@@ -92,16 +92,41 @@ const tips: ProTip[] = [
 
 export function PlaybookTabs() {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [touchStartX, setTouchStartX] = useState<number | null>(null);
   const current = tips[activeIndex];
 
   const go = useCallback((dir: -1 | 1) => {
     setActiveIndex((prev) => (prev + dir + tips.length) % tips.length);
   }, []);
 
+  const handleTouchStart = useCallback((event: TouchEvent<HTMLElement>) => {
+    setTouchStartX(event.changedTouches[0]?.clientX ?? null);
+  }, []);
+
+  const handleTouchEnd = useCallback(
+    (event: TouchEvent<HTMLElement>) => {
+      if (touchStartX === null) return;
+      const endX = event.changedTouches[0]?.clientX;
+      if (typeof endX !== "number") return;
+
+      const deltaX = endX - touchStartX;
+      const minSwipeDistance = 40;
+
+      if (deltaX > minSwipeDistance) {
+        go(-1);
+      } else if (deltaX < -minSwipeDistance) {
+        go(1);
+      }
+
+      setTouchStartX(null);
+    },
+    [go, touchStartX],
+  );
+
   return (
-    <section className="rounded-2xl border border-zinc-800 bg-zinc-950 p-4 sm:p-6">
-      <div className="mb-4 flex items-center justify-between gap-3">
-        <h3 className="text-xl font-semibold text-white sm:text-2xl">Doku Pro-Tips</h3>
+    <section className="rounded-2xl border border-zinc-800 bg-zinc-950 p-3 sm:p-6">
+      <div className="mb-3 flex items-center justify-between gap-3 sm:mb-4">
+        <h3 className="text-lg font-semibold text-white sm:text-2xl">Doku Pro-Tips</h3>
         <p className="text-xs uppercase tracking-[0.16em] text-zinc-500">
           Tip {activeIndex + 1} of {tips.length}
         </p>
@@ -114,25 +139,35 @@ export function PlaybookTabs() {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -10 }}
           transition={{ duration: 0.22, ease: "easeOut" }}
-          className="grid gap-4 rounded-2xl border border-zinc-800 bg-black p-3 sm:p-4 lg:grid-cols-[1.5fr_1fr] lg:gap-6"
+          className="grid gap-3 rounded-2xl border border-zinc-800 bg-black p-2.5 sm:p-4 lg:grid-cols-[0.95fr_1.05fr] lg:gap-6"
+          onTouchStart={handleTouchStart}
+          onTouchEnd={handleTouchEnd}
         >
-          <h4 className="order-1 text-center text-lg font-semibold leading-tight text-white sm:text-xl lg:hidden">
+          <h4 className="order-1 text-center text-base font-semibold leading-tight text-white sm:text-xl lg:hidden">
             {current.title}
           </h4>
 
           <div className="order-1 lg:order-1">
-            <div className="overflow-hidden rounded-xl border border-zinc-800 bg-zinc-950">
-              <video key={current.videoSrc} autoPlay loop muted playsInline controls={false} className="h-auto w-full rounded-lg">
+            <div className="mx-auto w-full max-w-[190px] overflow-hidden rounded-xl border border-zinc-800 bg-zinc-950 sm:max-w-[220px] lg:max-w-[260px]">
+              <video
+                key={current.videoSrc}
+                autoPlay
+                loop
+                muted
+                playsInline
+                controls={false}
+                className="h-auto w-full rounded-lg"
+              >
                 <source src={current.videoSrc} type="video/mp4" />
               </video>
             </div>
           </div>
 
-          <div className="order-2 flex flex-col justify-between gap-3 text-center lg:order-2 lg:text-left">
+          <div className="order-2 flex flex-col gap-2 text-center lg:order-2 lg:gap-3 lg:text-left">
             <h4 className="hidden text-lg font-semibold leading-tight text-white sm:text-xl lg:block">{current.title}</h4>
 
-            <div className="rounded-xl border border-zinc-800 bg-zinc-950/60 p-4">
-              <p className="text-sm leading-relaxed text-zinc-400">{current.description}</p>
+            <div className="rounded-xl border border-zinc-800 bg-zinc-950/60 p-3 sm:p-4">
+              <p className="text-xs leading-relaxed text-zinc-400 sm:text-sm">{current.description}</p>
             </div>
 
             <div className="flex items-center justify-center gap-2 lg:justify-start">
@@ -157,7 +192,7 @@ export function PlaybookTabs() {
         </motion.article>
       </AnimatePresence>
 
-      <div className="mt-4 flex flex-wrap items-center justify-center gap-1.5">
+      <div className="mt-3 flex flex-wrap items-center justify-center gap-1.5 sm:mt-4">
         {tips.map((tip, idx) => (
           <button
             key={tip.id}
