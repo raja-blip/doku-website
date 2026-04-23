@@ -3,33 +3,39 @@
 import { Car, FileText, Home, UserCircle, Users } from "lucide-react";
 import { useCallback, useState } from "react";
 
-type BranchId = "family" | "vehicles" | "property";
+type BranchId = "profiles" | "vehicles" | "property";
 
 const branches: {
   id: BranchId;
   label: string;
-  tag: "Profiles" | "Entities";
+  /** Small eyebrow: how this branch differs from entities */
+  tag: string;
+  /** Line above doc chips when this branch is active */
+  tetherCaption: string;
   docs: string[];
   Icon: typeof Users;
 }[] = [
   {
-    id: "family",
-    label: "Family",
-    tag: "Profiles",
-    docs: ["Passport", "Immunization", "School records"],
+    id: "profiles",
+    label: "Profiles",
+    tag: "Per person",
+    tetherCaption: "Identity and school papers sit under whoever's profile is open.",
+    docs: ["Aadhaar", "Passport", "Immunization", "School certificate"],
     Icon: Users,
   },
   {
     id: "vehicles",
     label: "Vehicles",
-    tag: "Entities",
+    tag: "Entity",
+    tetherCaption: "Linked to this vehicle",
     docs: ["RC", "Insurance", "PUC"],
     Icon: Car,
   },
   {
     id: "property",
     label: "Property",
-    tag: "Entities",
+    tag: "Entity",
+    tetherCaption: "Linked to this property",
     docs: ["Sale deed", "Tax receipt", "NOC"],
     Icon: Home,
   },
@@ -57,14 +63,14 @@ export function MultiEntityEngineGraphic() {
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_50%_65%,rgba(56,189,248,0.12),transparent_55%)]" />
 
       <div className="relative mx-auto flex max-w-2xl flex-col items-center gap-6 sm:gap-10">
-        {/* Top row: Family — Hub — Vehicles */}
+        {/* Top row: Profiles — Hub — Vehicles */}
         <div className="flex w-full items-center justify-between gap-2 sm:gap-6">
           <BranchNode branch={branches[0]} active={active} setActive={setActive} />
           <div className="relative flex shrink-0 flex-col items-center">
             <div className="hidden h-px w-8 bg-gradient-to-r from-sky-500/50 to-transparent sm:absolute sm:right-full sm:top-1/2 sm:block sm:w-10 sm:-translate-y-1/2" />
             <div
               className="flex size-16 items-center justify-center rounded-2xl border border-sky-400/40 bg-zinc-950/80 shadow-[0_0_28px_rgba(56,189,248,0.25)] ring-1 ring-white/10 sm:size-20"
-              aria-label="Your profile hub"
+              aria-label="Household workspace: switch profile or entity"
             >
               <UserCircle className="size-9 text-sky-400 sm:size-10" strokeWidth={1} aria-hidden />
             </div>
@@ -85,8 +91,8 @@ export function MultiEntityEngineGraphic() {
         >
           {active ? (
             <div className="flex flex-col items-center gap-2">
-              <p className="text-[11px] uppercase tracking-[0.16em] text-zinc-500">
-                Linked to {branches.find((b) => b.id === active)?.label}
+              <p className="max-w-sm text-[11px] leading-snug text-zinc-500">
+                {branches.find((b) => b.id === active)?.tetherCaption}
               </p>
               <div className="flex flex-wrap justify-center gap-2">
                 {branches
@@ -97,7 +103,9 @@ export function MultiEntityEngineGraphic() {
               </div>
             </div>
           ) : (
-            <p className="text-sm text-zinc-500">Hover a branch to see documents tethered to that profile or entity.</p>
+            <p className="text-sm text-zinc-500">
+              Hover a branch to see documents tethered to a person&apos;s profile or to an entity.
+            </p>
           )}
         </div>
       </div>
@@ -114,7 +122,7 @@ function BranchNode({
   active: BranchId | null;
   setActive: (id: BranchId | null) => void;
 }) {
-  const { id, label, tag, Icon } = branch;
+  const { label, tag, Icon } = branch;
   const isActive = active === id;
 
   return (

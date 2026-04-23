@@ -212,8 +212,10 @@ export default function Home() {
               </span>
             </div>
             <p className="text-sm leading-relaxed text-zinc-400">
-              A document only earns its keep when it&apos;s tied to the right person or thing. Flip between profiles and
-              entities in one gesture—no relabeling, no duplicate folders.
+              Doku is built for your household, but filing is <span className="text-zinc-200">profile-first</span>: each
+              person (you, spouse, kids, parents) keeps their own Aadhaar, passport, immunization, and school records.
+              <span className="text-zinc-200"> Entities</span> are for things—your car, home, or job—and their paperwork
+              stays separate. Switch context in one gesture—no relabeling, no duplicate folders.
             </p>
             <blockquote className="border-l-2 border-sky-500/45 pl-4 text-base italic leading-snug text-zinc-200">
               Looking for your daughter&apos;s immunization record? Don&apos;t search for &quot;Medical.&quot; Just tap
