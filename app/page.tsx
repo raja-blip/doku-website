@@ -4,7 +4,7 @@ import { MultiEntityEngineGraphic } from "@/components/multi-entity-engine";
 import { PlaybookTabs } from "@/components/playbook-tabs";
 import { Reveal } from "@/components/reveal";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { Bell, Briefcase, Layers, ShieldCheck, type LucideIcon } from "lucide-react";
+import { BellDot, Files, Fingerprint, Users, type LucideIcon } from "lucide-react";
 import Image from "next/image";
 
 const navItems = [
@@ -40,24 +40,24 @@ const problemCards = [
 
 const methodCards: { icon: LucideIcon; title: string; text: string }[] = [
   {
-    icon: Layers,
-    title: "Systematic Cataloging",
-    text: 'You define the document type; Doku handles the architecture. Every file is instantly indexed and precision-named—no more manual folder gymnastics or "Final_v2" filenames.',
+    icon: Users,
+    title: "People & Assets",
+    text: "Your life isn't one big folder. Doku maps documents to the people (Profiles) and assets (Cars, Property) they belong to.",
   },
   {
-    icon: Bell,
-    title: "Active Management",
-    text: "Get clear expiry reminders for critical records like passports and insurance before urgency kicks in.",
+    icon: Fingerprint,
+    title: "Precision Naming",
+    text: "You define the type; Doku handles the architecture. Every file is instantly indexed with a standardized, retrievable name.",
   },
   {
-    icon: ShieldCheck,
-    title: "Zero-AI Privacy",
-    text: "100% on-device flow with no cloud reading and no OCR leakage to third-party servers.",
+    icon: BellDot,
+    title: "Lifecycle Tracking",
+    text: "A document is a deadline. Doku tracks expiry dates for your Passport, Insurance, and Licenses—alerting you before they become a crisis.",
   },
   {
-    icon: Briefcase,
+    icon: Files,
     title: "Instant Collation",
-    text: "Gather everything needed for a Home Loan or a Family Visa by simply selecting the relevant Profiles and Entities. Doku pulls the right docs from the right places instantly.",
+    text: "Stop the scavenger hunt. One tap gathers every document needed for a visa, loan, or application across all your profiles.",
   },
 ];
 
@@ -68,18 +68,18 @@ const softwareApplicationSchema = {
   applicationCategory: "ProductivityApplication",
   operatingSystem: "iOS, Android",
   description:
-    "Doku is a high-precision personal document cataloging system built to keep records organized, actionable, and private.",
+    "Doku is a high-precision document vault that maps records to people and assets, with precision naming, lifecycle alerts, and instant collation.",
 };
 
 export default function Home() {
   return (
     <CursorGlow>
       <header className="sticky top-0 z-40 border-b border-border/80 bg-[#050505]/80 backdrop-blur-md">
-        <nav className="mx-auto flex w-full max-w-6xl items-center gap-2 overflow-x-auto px-5 py-3 sm:px-8">
+        <nav className="mx-auto flex w-full max-w-6xl items-center gap-4 overflow-x-auto px-5 py-3 sm:gap-6 sm:px-8">
           <a
             href="#hero"
             aria-label="Doku home"
-            className="mr-2 shrink-0 rounded-full border border-border bg-card p-1 transition hover:border-zinc-500"
+            className="shrink-0 rounded-full border border-border bg-card p-1 transition hover:border-zinc-500"
           >
             <Image
               src="/app-screenshots/icon.png"
@@ -89,15 +89,17 @@ export default function Home() {
               className="rounded-full"
             />
           </a>
-          {navItems.map((item) => (
-            <a
-              key={item.href}
-              href={item.href}
-              className="shrink-0 rounded-full border border-border bg-card px-3 py-1.5 text-xs text-zinc-300 transition hover:border-zinc-500 hover:text-white"
-            >
-              {item.label}
-            </a>
-          ))}
+          <div className="flex min-w-0 flex-1 items-center gap-x-8 overflow-x-auto">
+            {navItems.map((item) => (
+              <a
+                key={item.href}
+                href={item.href}
+                className="shrink-0 rounded-full border border-border bg-card px-3 py-1.5 text-xs text-zinc-300 transition hover:border-zinc-500 hover:text-white"
+              >
+                {item.label}
+              </a>
+            ))}
+          </div>
         </nav>
       </header>
 
@@ -119,7 +121,7 @@ export default function Home() {
               Where is it? shouldn&apos;t be the start of your paperwork.
             </h1>
             <p className="max-w-xl text-base leading-relaxed text-zinc-300 sm:text-lg">
-              Doku is the high-precision cataloging system for people who value order over chaos.
+              Doku is the high-precision document vault for people who value order over chaos.
             </p>
           </div>
           <div className="group relative overflow-hidden rounded-2xl border border-zinc-800 bg-gradient-to-br from-zinc-900 to-black p-5 transition hover:border-zinc-600">
@@ -179,7 +181,7 @@ export default function Home() {
                   <Icon
                     aria-hidden
                     strokeWidth={1}
-                    className="size-8 shrink-0 text-sky-400 transition-[transform,filter] duration-200 ease-out [filter:drop-shadow(0_0_10px_rgba(56,189,248,0.45))] group-hover:scale-110 group-hover:[filter:drop-shadow(0_0_20px_rgba(56,189,248,0.95))_drop-shadow(0_0_6px_rgba(56,189,248,0.6))]"
+                    className="size-8 shrink-0 text-sky-400 transition-[transform,filter] duration-200 ease-out [filter:drop-shadow(0_0_8px_rgba(56,189,248,0.4))] group-hover:scale-[1.08] group-hover:[filter:drop-shadow(0_0_16px_rgba(56,189,248,0.75))_drop-shadow(0_0_4px_rgba(56,189,248,0.5))]"
                   />
                   <div className="min-w-0 flex-1 sm:flex-none">
                     <h3 className="mb-2 text-base font-medium text-white">{card.title}</h3>
