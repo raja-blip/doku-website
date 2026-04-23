@@ -122,7 +122,7 @@ function BranchNode({
   active: BranchId | null;
   setActive: (id: BranchId | null) => void;
 }) {
-  const { label, tag, Icon } = branch;
+  const { id, label, tag, Icon } = branch;
   const isActive = active === id;
 
   return (
