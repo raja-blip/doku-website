@@ -62,9 +62,8 @@ const tips: ProTip[] = [
   },
   {
     id: "medical-timeline",
-    title: "The Medical History Timeline (Health Hack)",
-    description:
-      "Tag medical records to a specific person. When you're at the clinic, your family's medical history is a 5-second search away.",
+    title: "Add a Medical Record",
+    description: "Add a medical record and upload all relevant documents to let Doku merge into one PDF for you.",
     videoSrc: "/pro-tips/tip8.mp4",
   },
   {

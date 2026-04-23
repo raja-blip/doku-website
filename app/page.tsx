@@ -261,7 +261,9 @@ export default function Home() {
             </p>
             <div className="flex flex-wrap gap-3">
               <a
-                href="#"
+                href="https://apps.apple.com/in/app/doku-your-smart-id-locker/id6761997185"
+                target="_blank"
+                rel="noreferrer"
                 aria-label="App Store"
                 className="group flex min-w-40 items-center gap-3 rounded-xl border border-border bg-black/30 px-4 py-2 transition hover:border-zinc-500"
               >
@@ -276,7 +278,7 @@ export default function Home() {
                 </span>
               </a>
               <a
-                href="#"
+                href="/play-store"
                 aria-label="Play Store"
                 className="group flex min-w-40 items-center gap-3 rounded-xl border border-border bg-black/30 px-4 py-2 transition hover:border-zinc-500"
               >
@@ -460,17 +462,23 @@ export default function Home() {
         <footer className="rounded-2xl border border-border bg-card p-6">
           <div className="flex flex-col gap-5">
             <div className="flex flex-wrap items-center gap-2 text-xs text-zinc-400">
-              <a href="#" className="rounded-md border border-transparent px-2 py-1 transition hover:border-border hover:text-zinc-200">
+              <a
+                href="/privacy-policy"
+                className="rounded-md border border-transparent px-2 py-1 transition hover:border-border hover:text-zinc-200"
+              >
                 Privacy Policy
               </a>
-              <a href="#" className="rounded-md border border-transparent px-2 py-1 transition hover:border-border hover:text-zinc-200">
+              <a
+                href="/terms"
+                className="rounded-md border border-transparent px-2 py-1 transition hover:border-border hover:text-zinc-200"
+              >
                 Terms
               </a>
-              <a href="#" className="rounded-md border border-transparent px-2 py-1 transition hover:border-border hover:text-zinc-200">
+              <a
+                href="/support"
+                className="rounded-md border border-transparent px-2 py-1 transition hover:border-border hover:text-zinc-200"
+              >
                 Support
-              </a>
-              <a href="#" className="rounded-md border border-transparent px-2 py-1 transition hover:border-border hover:text-zinc-200">
-                Contact
               </a>
             </div>
             <div className="flex flex-col justify-between gap-5 sm:flex-row sm:items-center">
@@ -486,7 +494,9 @@ export default function Home() {
               </p>
               <div className="flex gap-3">
                 <a
-                  href="#"
+                  href="https://apps.apple.com/in/app/doku-your-smart-id-locker/id6761997185"
+                  target="_blank"
+                  rel="noreferrer"
                   aria-label="App Store"
                   className="group flex min-w-40 items-center gap-3 rounded-xl border border-border bg-black/30 px-4 py-2 transition hover:border-zinc-500"
                 >
@@ -503,7 +513,7 @@ export default function Home() {
                   </span>
                 </a>
                 <a
-                  href="#"
+                  href="/play-store"
                   aria-label="Play Store"
                   className="group flex min-w-40 items-center gap-3 rounded-xl border border-border bg-black/30 px-4 py-2 transition hover:border-zinc-500"
                 >
