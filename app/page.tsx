@@ -519,9 +519,6 @@ export default function Home() {
                 </a>
               </div>
             </div>
-            <div className="flex gap-3">
-              <span className="text-xs text-zinc-600">Add final links before launch.</span>
-            </div>
           </div>
         </footer>
       </main>

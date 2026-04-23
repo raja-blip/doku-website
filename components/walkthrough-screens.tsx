@@ -34,12 +34,7 @@ function columnHeadingId(columnIndex: number) {
 export function WalkthroughScreens({ columns }: WalkthroughScreensProps) {
   return (
     <div className="space-y-4 sm:space-y-5">
-      <div className="space-y-1">
-        <h3 className="text-lg font-semibold text-white sm:text-xl">Key product moments</h3>
-        <p className="max-w-2xl text-sm text-zinc-500">
-          Three tracks—setup, documents, and utilities—each with its own stills you can step through.
-        </p>
-      </div>
+      <h3 className="text-lg font-semibold text-white sm:text-xl">Key product moments</h3>
 
       <div className="grid gap-6 sm:gap-8 lg:grid-cols-3 lg:gap-6 xl:gap-8">
         {columns.map((col, colIndex) => (
@@ -79,11 +74,10 @@ function ColumnCarousel({ column, columnIndex }: { column: WalkthroughColumn; co
 
   return (
     <section className="flex flex-col" aria-labelledby={headingId}>
-      <div className="mb-3 space-y-1 sm:mb-4">
+      <div className="mb-3 sm:mb-4">
         <h4 id={headingId} className="text-base font-semibold text-white">
           {title}
         </h4>
-        <p className="text-sm text-zinc-500">{description}</p>
       </div>
 
       <article className="flex flex-1 flex-col overflow-hidden rounded-2xl border border-white/10 bg-white/[0.04] shadow-sm ring-1 ring-white/5">

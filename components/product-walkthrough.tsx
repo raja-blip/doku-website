@@ -1,7 +1,7 @@
 "use client";
 
 import { BellDot, ChevronLeft, ChevronRight, Files, Fingerprint, Maximize2, Users } from "lucide-react";
-import { useCallback, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 const slideIconMap = {
   users: Users,
@@ -30,6 +30,8 @@ function enterFullscreen(video: HTMLVideoElement | null) {
 export function ProductWalkthrough({ slides }: { slides: WalkthroughSlide[] }) {
   const [active, setActive] = useState(0);
   const videoRef = useRef<HTMLVideoElement>(null);
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const [isInView, setIsInView] = useState(false);
   const count = slides.length;
   const safeIndex = ((active % count) + count) % count;
   const slide = slides[safeIndex];
@@ -41,8 +43,38 @@ export function ProductWalkthrough({ slides }: { slides: WalkthroughSlide[] }) {
     [count],
   );
 
+  useEffect(() => {
+    const node = sectionRef.current;
+    if (!node) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsInView(entry.isIntersecting);
+      },
+      { threshold: 0.6 },
+    );
+
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    if (!isInView) {
+      video.pause();
+      return;
+    }
+
+    video.currentTime = 0;
+    void video.play().catch(() => {
+      // Autoplay can be blocked if browser policies change.
+    });
+  }, [isInView, safeIndex]);
+
   return (
-    <div className="rounded-2xl border border-border bg-card p-3 sm:p-6">
+    <div ref={sectionRef} className="rounded-2xl border border-border bg-card p-3 sm:p-6">
       <div className="flex flex-col gap-3 sm:gap-4 lg:flex-row lg:items-start lg:gap-10">
         <div className="mx-auto flex w-full max-w-[220px] flex-col items-center gap-2 sm:max-w-[250px] lg:mx-0 lg:shrink-0 lg:max-w-[280px]">
           <div className="relative w-full overflow-hidden rounded-2xl border border-zinc-800 bg-black shadow-lg ring-1 ring-white/5">
@@ -51,6 +83,8 @@ export function ProductWalkthrough({ slides }: { slides: WalkthroughSlide[] }) {
               key={slide.videoSrc}
               controls
               playsInline
+              autoPlay
+              muted
               preload="metadata"
               className="aspect-[9/19] w-full object-contain"
             >
