@@ -6,62 +6,6 @@ import { useState } from "react";
 
 const screens = [
   {
-    src: "/app-screenshots/screen-01.png",
-    alt: "Doku app screenshot 1",
-    title: "One home for every critical document",
-    description:
-      "Bring PAN, passport, insurance, and bills into one unified, searchable workspace.",
-    bullets: ["Unified dashboard", "Zero folder hunting", "Fast mobile-first navigation"],
-  },
-  {
-    src: "/app-screenshots/screen-02.png",
-    alt: "Doku app screenshot 2",
-    title: "AI categories that organize for you",
-    description:
-      "Doku auto-tags files by document type so your records stay clean without manual effort.",
-    bullets: ["Smart taxonomy", "Context-aware labels", "No manual naming overhead"],
-  },
-  {
-    src: "/app-screenshots/screen-03.png",
-    alt: "Doku app screenshot 3",
-    title: "OCR search to the exact page",
-    description:
-      "Ask in plain language and jump directly to the section you need in seconds.",
-    bullets: ["Semantic search", "Page-level retrieval", "Natural language queries"],
-  },
-  {
-    src: "/app-screenshots/screen-04.png",
-    alt: "Doku app screenshot 4",
-    title: "Expiry intelligence that keeps you ahead",
-    description:
-      "Track passports, policies, and certificates with timely reminders before deadlines.",
-    bullets: ["Early alerts", "Renewal timelines", "Priority-based reminders"],
-  },
-  {
-    src: "/app-screenshots/screen-05.png",
-    alt: "Doku app screenshot 5",
-    title: "Private by design architecture",
-    description:
-      "Security is built into every flow with encrypted storage and scoped access controls.",
-    bullets: ["Encrypted storage", "Controlled sharing", "Trust-first infrastructure"],
-  },
-  {
-    src: "/app-screenshots/screen-06.png",
-    alt: "Doku app screenshot 6",
-    title: "Document history at a glance",
-    description:
-      "See updates, uploads, and edits instantly so your records are always audit-ready.",
-    bullets: ["Activity visibility", "Version confidence", "Clear ownership"],
-  },
-  {
-    src: "/app-screenshots/screen-07.png",
-    alt: "Doku app screenshot 7",
-    title: "Intelligent reminders and nudges",
-    description:
-      "Doku surfaces next best actions exactly when they matter for your daily workflow.",
-    bullets: ["Smart prompts", "Action recommendations", "Proactive workflows"],
-  },
-  {
     src: "/app-screenshots/screen-08.png",
     alt: "Doku app screenshot 8",
     title: "Clean sharing for real-life collaboration",

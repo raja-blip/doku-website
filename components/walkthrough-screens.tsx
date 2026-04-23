@@ -24,8 +24,7 @@ export function WalkthroughScreens({ screens }: WalkthroughScreensProps) {
       <div className="space-y-1">
         <h3 className="text-lg font-semibold text-white sm:text-xl">Key product moments</h3>
         <p className="max-w-2xl text-sm text-zinc-500">
-          Annotated stills sit below the clips. Replace <span className="font-mono text-xs text-zinc-400">wt-01…wt-06</span>{" "}
-          in <span className="font-mono text-xs text-zinc-400">public/app-screenshots/</span> when your finals are ready.
+          Annotated stills below the clips highlight setup, backups, and the flows that matter after day one.
         </p>
       </div>
 
