@@ -19,4 +19,4 @@ for base in final_people_assets final_file_name final_life_tracking final_share;
     "$out"
   ls -lh "$in" "$out" || true
 done
-echo "Done. Update methodCards videoSrc paths to *_web.mp4 if you replace originals."
+echo "Done. Review *_web.mp4 quality, then replace originals if desired (same filenames keep site URLs unchanged)."
