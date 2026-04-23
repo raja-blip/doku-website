@@ -173,13 +173,13 @@ const walkthroughColumns = [
         caption: "Get answers for your FAQs.",
       },
       {
-        src: "/app-screenshots/utilities/u4.PNG",
+        src: "/app-screenshots/utilities/u5.png",
         tag: "Backup & Restore",
         callout: "Backup and restore",
         caption: "Create an encrypted backup, PIN protected; restore when you change phones.",
       },
       {
-        src: "/app-screenshots/utilities/u5.png",
+        src: "/app-screenshots/utilities/u4.PNG",
         tag: "Delete Locker",
         callout: "Delete locker",
         caption: "Purge all your data from Doku if you don't need them.",
