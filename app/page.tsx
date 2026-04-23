@@ -22,11 +22,12 @@ const navItems = [
   { href: "#hero", label: "Hero" },
   { href: "#problem", label: "Problem" },
   { href: "#solution", label: "Solution" },
-  { href: "#multi-entity", label: "Engine" },
   { href: "#deep-dive", label: "Deep Dive" },
   { href: "#playbook", label: "Playbook" },
-  { href: "#trust", label: "Trust" },
+  { href: "#trust", label: "FAQs" },
 ];
+
+const heroBrandMockVariant: "refined-pill" | "brand-line" = "brand-line";
 
 const problemCards = [
   {
@@ -79,7 +80,7 @@ const methodCards: { iconKey: MethodIconKey; title: string; text: string; videoS
 const walkthroughColumns = [
   {
     title: "Setup",
-    description: "Create your locker and set how it unlocks.",
+    description: "Create your locker and set biometric based unlocking.",
     screens: [
       {
         src: "/app-screenshots/setup/s1.png",
@@ -172,13 +173,13 @@ const walkthroughColumns = [
         caption: "Get answers for your FAQs.",
       },
       {
-        src: "/app-screenshots/utilities/u4.png",
+        src: "/app-screenshots/utilities/u4.PNG",
         tag: "Backup & Restore",
         callout: "Backup and restore",
         caption: "Create an encrypted backup, PIN protected; restore when you change phones.",
       },
       {
-        src: "/app-screenshots/utilities/u5.PNG",
+        src: "/app-screenshots/utilities/u5.png",
         tag: "Delete Locker",
         callout: "Delete locker",
         caption: "Purge all your data from Doku if you don't need them.",
@@ -240,9 +241,18 @@ export default function Home() {
           className="scroll-mt-24 grid items-center gap-8 rounded-3xl border border-border bg-card/80 p-6 sm:p-10 lg:grid-cols-[1.1fr_0.9fr]"
         >
           <div className="space-y-6">
-            <p className="inline-flex rounded-full border border-border bg-black/30 px-3 py-1 text-xs uppercase tracking-[0.18em] text-zinc-400">
-              Doku by Listolabs
-            </p>
+            {heroBrandMockVariant === "refined-pill" ? (
+              <p className="inline-flex rounded-full border border-sky-500/25 bg-sky-500/10 px-3.5 py-1 text-xs font-medium uppercase tracking-[0.16em] text-sky-200/90">
+                Doku by Listolabs
+              </p>
+            ) : (
+              <p className="inline-flex items-center gap-2 text-sm font-medium tracking-[0.08em] text-zinc-200">
+                <span className="rounded-full border border-sky-500/40 bg-sky-500/20 px-2 py-0.5 text-[11px] uppercase text-sky-200">
+                  Doku
+                </span>
+                <span className="uppercase text-zinc-400">by Listolabs</span>
+              </p>
+            )}
             <h1 className="text-4xl font-semibold tracking-tight text-white sm:text-6xl">
               Where is it? shouldn&apos;t be the start of your paperwork.
             </h1>
