@@ -1,102 +1,174 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { useMemo, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import { useCallback, useState } from "react";
 
-type PlaybookTab = {
-  id: "getting-started" | "mastering-expiry" | "application-prep";
-  label: string;
+type ProTip = {
+  id: string;
   title: string;
   description: string;
-  bullets: string[];
+  videoSrc: string;
 };
 
-const tabs: PlaybookTab[] = [
+const tips: ProTip[] = [
   {
-    id: "getting-started",
-    label: "Getting Started",
-    title: "Build your baseline in minutes",
+    id: "whatsapp-quick-park",
+    title: "Stop the Gallery Clutter (WhatsApp Quick-Park)",
     description:
-      "Start by organizing your highest-priority records first so every future workflow has a dependable foundation.",
-    bullets: [
-      "Create core categories: identity, finance, health, and travel.",
-      "Upload one clean copy of each critical document.",
-      "Use clear labels to make retrieval obvious under pressure.",
-    ],
+      "When a document hits your WhatsApp, don't just \"Save to Photos.\" Use the Share Sheet to send it directly to Doku.",
+    videoSrc: "/feature-videos/final_share.mp4",
   },
   {
-    id: "mastering-expiry",
-    label: "Mastering Expiry",
-    title: "Turn deadlines into planned actions",
+    id: "both-sides-rule",
+    title: "Complete Identity, One Entry (Both-Sides Rule)",
     description:
-      "Use proactive reminders to avoid last-minute renewals, penalties, and documentation panic.",
-    bullets: [
-      "Set reminder windows at 180, 90, and 30 days.",
-      "Add renewal dependencies like photos, IDs, or forms.",
-      "Review upcoming expiries weekly with one quick sweep.",
-    ],
+      "Most IDs hide the address on the back. Upload both sides as one entry so you're never scrambling for proof of residence.",
+    videoSrc: "/feature-videos/final_file_name.mp4",
   },
   {
-    id: "application-prep",
-    label: "Application Prep",
-    title: "Assemble complete packets quickly",
+    id: "entity-groups",
+    title: "Your Assets, Organized (Entity Groups)",
     description:
-      "When applications appear, gather required paperwork in one pass with less back-and-forth.",
-    bullets: [
-      "Save checklist templates for visa, loan, and onboarding flows.",
-      "Collate matching records into one export-ready set.",
-      "Verify document validity before submitting any packet.",
-    ],
+      "Your life isn't one big folder. Group records by the assets they belong to, like cars or property, for instant retrieval.",
+    videoSrc: "/feature-videos/final_people_assets.mp4",
+  },
+  {
+    id: "deadline-discipline",
+    title: "Turn Paper into Alerts (Deadline Discipline)",
+    description:
+      "Add an expiry date to your DL or Passport the moment you upload. Doku transforms static files into proactive notifications.",
+    videoSrc: "/feature-videos/final_life_tracking.mp4",
+  },
+  {
+    id: "tax-year-anchor",
+    title: "Don't Compile Taxes in April (Tax Year Anchor)",
+    description:
+      "Tag investment proofs as you go. Come tax season, tap the Tax Year tag and export the whole bundle to your CA in one click.",
+    videoSrc: "/feature-videos/final_share.mp4",
+  },
+  {
+    id: "staff-vault",
+    title: "The Household Staff Vault (Security Hack)",
+    description:
+      "Keep your home secure. Store Aadhaar and verification records for your driver or domestic help in their own dedicated entities.",
+    videoSrc: "/feature-videos/final_people_assets.mp4",
+  },
+  {
+    id: "medical-timeline",
+    title: "The Medical History Timeline (Health Hack)",
+    description:
+      "Tag medical records to a specific person. When you're at the clinic, your family's medical history is a 5-second search away.",
+    videoSrc: "/feature-videos/final_file_name.mp4",
+  },
+  {
+    id: "quick-correction",
+    title: "Precision isn't Permanent (Quick Correction)",
+    description: "Precision isn't permanent. Fix a date error in two taps without having to re-upload the entire document.",
+    videoSrc: "/feature-videos/final_file_name.mp4",
+  },
+  {
+    id: "smart-bundle-mix",
+    title: "The Smart Bundle Mix (Share Logic)",
+    description:
+      "Sharing isn't all-or-nothing. Use \"Smart Bundle\" to gather files, then custom-pick exactly what stays in the final package.",
+    videoSrc: "/feature-videos/final_share.mp4",
+  },
+  {
+    id: "swipe-secret",
+    title: "The Swipe Secret (Navigation Tip)",
+    description:
+      "Don't miss a thing. Most entity rows are swipe-able. Just flick right on a document row to see the full category history.",
+    videoSrc: "/feature-videos/final_people_assets.mp4",
+  },
+  {
+    id: "backup-choice",
+    title: "The Backup Choice (Data Portability)",
+    description:
+      "Use .qv files for a perfect encrypted restore into Doku, or export a Zip via \"Share\" for a standard archive you can open anywhere.",
+    videoSrc: "/feature-videos/final_life_tracking.mp4",
   },
 ];
 
 export function PlaybookTabs() {
-  const [active, setActive] = useState<PlaybookTab["id"]>("getting-started");
+  const [activeIndex, setActiveIndex] = useState(0);
+  const current = tips[activeIndex];
 
-  const currentTab = useMemo(
-    () => tabs.find((tab) => tab.id === active) ?? tabs[0],
-    [active],
-  );
+  const go = useCallback((dir: -1 | 1) => {
+    setActiveIndex((prev) => (prev + dir + tips.length) % tips.length);
+  }, []);
 
   return (
-    <div className="rounded-2xl border border-border bg-card p-4 sm:p-6">
-      <div className="mb-5 flex flex-wrap gap-2">
-        {tabs.map((tab) => {
-          const isActive = active === tab.id;
-          return (
-            <button
-              key={tab.id}
-              type="button"
-              onClick={() => setActive(tab.id)}
-              className={`rounded-full border px-4 py-2 text-sm transition ${
-                isActive
-                  ? "border-zinc-500 bg-zinc-900 text-white"
-                  : "border-border bg-black/30 text-zinc-400 hover:border-zinc-600 hover:text-zinc-200"
-              }`}
-            >
-              {tab.label}
-            </button>
-          );
-        })}
+    <section className="rounded-2xl border border-zinc-800 bg-zinc-950 p-4 sm:p-6">
+      <div className="mb-4 flex items-center justify-between gap-3">
+        <h3 className="text-xl font-semibold text-white sm:text-2xl">Doku Pro-Tips</h3>
+        <p className="text-xs uppercase tracking-[0.16em] text-zinc-500">
+          Tip {activeIndex + 1} of {tips.length}
+        </p>
       </div>
 
-      <motion.div
-        key={currentTab.id}
-        initial={{ opacity: 0, y: 8 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.22, ease: "easeOut" }}
-        className="rounded-xl border border-border bg-black/30 p-5"
-      >
-        <h3 className="mb-2 text-xl font-medium text-white">{currentTab.title}</h3>
-        <p className="mb-4 text-sm leading-relaxed text-zinc-400">{currentTab.description}</p>
-        <ul className="space-y-2 text-sm text-zinc-300">
-          {currentTab.bullets.map((bullet) => (
-            <li key={bullet} className="rounded-lg border border-border bg-black/30 px-3 py-2">
-              {bullet}
-            </li>
-          ))}
-        </ul>
-      </motion.div>
-    </div>
+      <AnimatePresence mode="wait">
+        <motion.article
+          key={current.id}
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -10 }}
+          transition={{ duration: 0.22, ease: "easeOut" }}
+          className="grid gap-4 rounded-2xl border border-zinc-800 bg-black p-3 sm:p-4 lg:grid-cols-[1.5fr_1fr] lg:gap-6"
+        >
+          <h4 className="order-1 text-center text-lg font-semibold leading-tight text-white sm:text-xl lg:hidden">
+            {current.title}
+          </h4>
+
+          <div className="order-1 lg:order-1">
+            <div className="overflow-hidden rounded-xl border border-zinc-800 bg-zinc-950">
+              <video key={current.videoSrc} autoPlay loop muted playsInline controls={false} className="h-auto w-full rounded-lg">
+                <source src={current.videoSrc} type="video/mp4" />
+              </video>
+            </div>
+          </div>
+
+          <div className="order-2 flex flex-col justify-between gap-3 text-center lg:order-2 lg:text-left">
+            <h4 className="hidden text-lg font-semibold leading-tight text-white sm:text-xl lg:block">{current.title}</h4>
+
+            <div className="rounded-xl border border-zinc-800 bg-zinc-950/60 p-4">
+              <p className="text-sm leading-relaxed text-zinc-400">{current.description}</p>
+            </div>
+
+            <div className="flex items-center justify-center gap-2 lg:justify-start">
+              <button
+                type="button"
+                aria-label="Previous tip"
+                onClick={() => go(-1)}
+                className="rounded-full border border-zinc-800 bg-zinc-950 p-2 text-zinc-300 transition hover:border-zinc-600 hover:text-white"
+              >
+                <ChevronLeft className="size-4" aria-hidden />
+              </button>
+              <button
+                type="button"
+                aria-label="Next tip"
+                onClick={() => go(1)}
+                className="rounded-full border border-zinc-800 bg-zinc-950 p-2 text-zinc-300 transition hover:border-zinc-600 hover:text-white"
+              >
+                <ChevronRight className="size-4" aria-hidden />
+              </button>
+            </div>
+          </div>
+        </motion.article>
+      </AnimatePresence>
+
+      <div className="mt-4 flex flex-wrap items-center justify-center gap-1.5">
+        {tips.map((tip, idx) => (
+          <button
+            key={tip.id}
+            type="button"
+            onClick={() => setActiveIndex(idx)}
+            aria-label={`Go to pro-tip ${idx + 1}`}
+            aria-current={idx === activeIndex ? "true" : undefined}
+            className={`h-1.5 rounded-full transition-all ${idx === activeIndex ? "w-6 bg-white" : "w-3 bg-zinc-700 hover:bg-zinc-500"}`}
+          />
+        ))}
+      </div>
+    </section>
   );
 }

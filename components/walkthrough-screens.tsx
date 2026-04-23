@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { useCallback, useState } from "react";
+import { useCallback, useState, type TouchEvent } from "react";
 
 export type WalkthroughScreen = {
   /** Public path, e.g. /app-screenshots/wt-01.png */
@@ -49,6 +49,7 @@ function ColumnCarousel({ column, columnIndex }: { column: WalkthroughColumn; co
   const { screens, title, description } = column;
   const headingId = columnHeadingId(columnIndex);
   const [index, setIndex] = useState(0);
+  const [touchStartX, setTouchStartX] = useState<number | null>(null);
   const n = screens.length;
   const safeIndex = n === 0 ? 0 : index % n;
   const screen = screens[safeIndex] ?? null;
@@ -62,6 +63,30 @@ function ColumnCarousel({ column, columnIndex }: { column: WalkthroughColumn; co
     if (n === 0) return;
     setIndex((i) => (i + 1) % n);
   }, [n]);
+
+  const handleTouchStart = useCallback((event: TouchEvent<HTMLElement>) => {
+    setTouchStartX(event.changedTouches[0]?.clientX ?? null);
+  }, []);
+
+  const handleTouchEnd = useCallback(
+    (event: TouchEvent<HTMLElement>) => {
+      if (touchStartX === null) return;
+      const endX = event.changedTouches[0]?.clientX;
+      if (typeof endX !== "number") return;
+
+      const deltaX = endX - touchStartX;
+      const minSwipeDistance = 40;
+
+      if (deltaX > minSwipeDistance) {
+        goPrev();
+      } else if (deltaX < -minSwipeDistance) {
+        goNext();
+      }
+
+      setTouchStartX(null);
+    },
+    [goNext, goPrev, touchStartX],
+  );
 
   if (!screen || n === 0) {
     return (
@@ -80,7 +105,11 @@ function ColumnCarousel({ column, columnIndex }: { column: WalkthroughColumn; co
         </h4>
       </div>
 
-      <article className="flex flex-1 flex-col overflow-hidden rounded-2xl border border-white/10 bg-white/[0.04] shadow-sm ring-1 ring-white/5">
+      <article
+        className="flex flex-1 touch-pan-y flex-col overflow-hidden rounded-2xl border border-white/10 bg-white/[0.04] shadow-sm ring-1 ring-white/5"
+        onTouchStart={n > 1 ? handleTouchStart : undefined}
+        onTouchEnd={n > 1 ? handleTouchEnd : undefined}
+      >
         <ScreenSlide key={screen.src} screen={screen} />
 
         {n > 1 ? (

@@ -1,7 +1,7 @@
 "use client";
 
 import { BellDot, ChevronLeft, ChevronRight, Files, Fingerprint, Maximize2, Users } from "lucide-react";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState, type TouchEvent } from "react";
 
 const slideIconMap = {
   users: Users,
@@ -29,6 +29,8 @@ function enterFullscreen(video: HTMLVideoElement | null) {
 
 export function ProductWalkthrough({ slides }: { slides: WalkthroughSlide[] }) {
   const [active, setActive] = useState(0);
+  const [isMuted, setIsMuted] = useState(true);
+  const [touchStartX, setTouchStartX] = useState<number | null>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   const sectionRef = useRef<HTMLDivElement>(null);
   const [isInView, setIsInView] = useState(false);
@@ -42,6 +44,36 @@ export function ProductWalkthrough({ slides }: { slides: WalkthroughSlide[] }) {
     },
     [count],
   );
+
+  const handleTouchStart = useCallback((event: TouchEvent<HTMLElement>) => {
+    setTouchStartX(event.changedTouches[0]?.clientX ?? null);
+  }, []);
+
+  const handleTouchEnd = useCallback(
+    (event: TouchEvent<HTMLElement>) => {
+      if (touchStartX === null) return;
+      const endX = event.changedTouches[0]?.clientX;
+      if (typeof endX !== "number") return;
+
+      const deltaX = endX - touchStartX;
+      const minSwipeDistance = 40;
+
+      if (deltaX > minSwipeDistance) {
+        go(-1);
+      } else if (deltaX < -minSwipeDistance) {
+        go(1);
+      }
+
+      setTouchStartX(null);
+    },
+    [go, touchStartX],
+  );
+
+  const handleVolumeChange = useCallback(() => {
+    const video = videoRef.current;
+    if (!video) return;
+    setIsMuted(video.muted || video.volume === 0);
+  }, []);
 
   useEffect(() => {
     const node = sectionRef.current;
@@ -62,6 +94,8 @@ export function ProductWalkthrough({ slides }: { slides: WalkthroughSlide[] }) {
     const video = videoRef.current;
     if (!video) return;
 
+    video.muted = isMuted;
+
     if (!isInView) {
       video.pause();
       return;
@@ -71,20 +105,25 @@ export function ProductWalkthrough({ slides }: { slides: WalkthroughSlide[] }) {
     void video.play().catch(() => {
       // Autoplay can be blocked if browser policies change.
     });
-  }, [isInView, safeIndex]);
+  }, [isInView, isMuted, safeIndex]);
 
   return (
     <div ref={sectionRef} className="rounded-2xl border border-border bg-card p-3 sm:p-6">
       <div className="flex flex-col gap-3 sm:gap-4 lg:flex-row lg:items-start lg:gap-10">
         <div className="mx-auto flex w-full max-w-[220px] flex-col items-center gap-2 sm:max-w-[250px] lg:mx-0 lg:shrink-0 lg:max-w-[280px]">
-          <div className="relative w-full overflow-hidden rounded-2xl border border-zinc-800 bg-black shadow-lg ring-1 ring-white/5">
+          <div
+            className="relative w-full touch-pan-y overflow-hidden rounded-2xl border border-zinc-800 bg-black shadow-lg ring-1 ring-white/5"
+            onTouchStart={handleTouchStart}
+            onTouchEnd={handleTouchEnd}
+          >
             <video
               ref={videoRef}
               key={slide.videoSrc}
               controls
               playsInline
               autoPlay
-              muted
+              muted={isMuted}
+              onVolumeChange={handleVolumeChange}
               preload="metadata"
               className="aspect-[9/19] w-full object-contain"
             >
