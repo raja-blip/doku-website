@@ -76,42 +76,60 @@ const methodCards: { iconKey: MethodIconKey; title: string; text: string; videoS
   },
 ];
 
-const walkthroughScreens = [
+const walkthroughColumns = [
   {
-    src: "/app-screenshots/wt-01.png",
-    tag: "Setup",
-    callout: "Household and profiles, in one glance",
-    caption: "Show how a fresh install looks: vault scope, first profile, and where entities live.",
+    title: "Setup",
+    description: "First run, vault scope, and how the household is structured.",
+    screens: [
+      {
+        src: "/app-screenshots/wt-01.png",
+        tag: "Setup",
+        callout: "Household and profiles, in one glance",
+        caption: "Show how a fresh install looks: vault scope, first profile, and where entities live.",
+      },
+    ],
   },
   {
-    src: "/app-screenshots/wt-02.png",
-    tag: "Backup",
-    callout: "Recovery you can trust",
-    caption: "Highlight export or backup flow—what gets copied, where it lands, and restore confidence.",
+    title: "Documents",
+    description: "Profile and entity pages—the core filing experience.",
+    screens: [
+      {
+        src: "/app-screenshots/wt-03.png",
+        tag: "Profiles",
+        callout: "Per-person paper, not one pile",
+        caption: "Pick a child or parent profile and show identity and school docs scoped to them.",
+      },
+      {
+        src: "/app-screenshots/wt-04.png",
+        tag: "Entities",
+        callout: "Things get their own drawer",
+        caption: "Vehicle or property entity with RC, insurance, or deed chips visible together.",
+      },
+    ],
   },
   {
-    src: "/app-screenshots/wt-03.png",
-    tag: "Profiles",
-    callout: "Per-person paper, not one pile",
-    caption: "Pick a child or parent profile and show identity and school docs scoped to them.",
-  },
-  {
-    src: "/app-screenshots/wt-04.png",
-    tag: "Entities",
-    callout: "Things get their own drawer",
-    caption: "Vehicle or property entity with RC, insurance, or deed chips visible together.",
-  },
-  {
-    src: "/app-screenshots/wt-05.png",
-    tag: "Expiry",
-    callout: "Deadlines surface before panic",
-    caption: "Passport or policy row with a clear countdown and what happens next.",
-  },
-  {
-    src: "/app-screenshots/wt-06.png",
-    tag: "Share",
-    callout: "One packet, every attachment",
-    caption: "Collation or share sheet for a visa or loan—everything selected, nothing missing.",
+    title: "Utilities",
+    description: "Share, alerts, backup, help, and everything around the filing core.",
+    screens: [
+      {
+        src: "/app-screenshots/wt-02.png",
+        tag: "Backup",
+        callout: "Recovery you can trust",
+        caption: "Highlight export or backup flow—what gets copied, where it lands, and restore confidence.",
+      },
+      {
+        src: "/app-screenshots/wt-05.png",
+        tag: "Expiry",
+        callout: "Deadlines surface before panic",
+        caption: "Passport or policy row with a clear countdown and what happens next.",
+      },
+      {
+        src: "/app-screenshots/wt-06.png",
+        tag: "Share",
+        callout: "One packet, every attachment",
+        caption: "Collation or share sheet for a visa or loan—everything selected, nothing missing.",
+      },
+    ],
   },
 ];
 
@@ -286,8 +304,8 @@ export default function Home() {
             <p className="text-xs uppercase tracking-[0.2em] text-zinc-500">The Deep Dive</p>
             <h2 className="text-3xl font-semibold text-white sm:text-4xl">Product walkthrough</h2>
             <p className="max-w-2xl text-sm text-zinc-400">
-              Short vertical clips for each pillar, then a row of annotated stills for setup, backup, and other sharp
-              moments. Swap the PNGs when your final captures are ready.
+              Short vertical clips for each pillar, then three still tracks—setup, documents, and utilities—each with
+              its own carousel on large screens.
             </p>
           </div>
           <ProductWalkthrough
@@ -299,7 +317,7 @@ export default function Home() {
             }))}
           />
           <div className="border-t border-white/10 pt-10">
-            <WalkthroughScreens screens={walkthroughScreens} />
+            <WalkthroughScreens columns={walkthroughColumns} />
           </div>
         </Reveal>
 
