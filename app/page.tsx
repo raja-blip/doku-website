@@ -2,6 +2,7 @@ import { CursorGlow } from "@/components/cursor-glow";
 import { FolderFallacyCard } from "@/components/folder-fallacy-card";
 import { MultiEntityEngineGraphic } from "@/components/multi-entity-engine";
 import { ProductWalkthrough } from "@/components/product-walkthrough";
+import { WalkthroughScreens } from "@/components/walkthrough-screens";
 import { PlaybookTabs } from "@/components/playbook-tabs";
 import { Reveal } from "@/components/reveal";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
@@ -72,6 +73,45 @@ const methodCards: { iconKey: MethodIconKey; title: string; text: string; videoS
     title: "Instant Collation",
     text: "Stop the scavenger hunt. One tap gathers every document needed for a visa, loan, or application across all your profiles.",
     videoSrc: "/feature-videos/final_share.mp4",
+  },
+];
+
+const walkthroughScreens = [
+  {
+    src: "/app-screenshots/wt-01.png",
+    tag: "Setup",
+    callout: "Household and profiles, in one glance",
+    caption: "Show how a fresh install looks: vault scope, first profile, and where entities live.",
+  },
+  {
+    src: "/app-screenshots/wt-02.png",
+    tag: "Backup",
+    callout: "Recovery you can trust",
+    caption: "Highlight export or backup flow—what gets copied, where it lands, and restore confidence.",
+  },
+  {
+    src: "/app-screenshots/wt-03.png",
+    tag: "Profiles",
+    callout: "Per-person paper, not one pile",
+    caption: "Pick a child or parent profile and show identity and school docs scoped to them.",
+  },
+  {
+    src: "/app-screenshots/wt-04.png",
+    tag: "Entities",
+    callout: "Things get their own drawer",
+    caption: "Vehicle or property entity with RC, insurance, or deed chips visible together.",
+  },
+  {
+    src: "/app-screenshots/wt-05.png",
+    tag: "Expiry",
+    callout: "Deadlines surface before panic",
+    caption: "Passport or policy row with a clear countdown and what happens next.",
+  },
+  {
+    src: "/app-screenshots/wt-06.png",
+    tag: "Share",
+    callout: "One packet, every attachment",
+    caption: "Collation or share sheet for a visa or loan—everything selected, nothing missing.",
   },
 ];
 
@@ -246,8 +286,8 @@ export default function Home() {
             <p className="text-xs uppercase tracking-[0.2em] text-zinc-500">The Deep Dive</p>
             <h2 className="text-3xl font-semibold text-white sm:text-4xl">Product walkthrough</h2>
             <p className="max-w-2xl text-sm text-zinc-400">
-              Vertical phone captures for each Doku Method pillar. On large screens the clip sits beside the story; on
-              phones, use the strip to jump clips or open fullscreen for a clearer view.
+              Short vertical clips for each pillar, then a row of annotated stills for setup, backup, and other sharp
+              moments. Swap the PNGs when your final captures are ready.
             </p>
           </div>
           <ProductWalkthrough
@@ -258,6 +298,9 @@ export default function Home() {
               iconKey,
             }))}
           />
+          <div className="border-t border-white/10 pt-10">
+            <WalkthroughScreens screens={walkthroughScreens} />
+          </div>
         </Reveal>
 
         <Reveal id="playbook" className="scroll-mt-24 space-y-6" delay={0.1}>
