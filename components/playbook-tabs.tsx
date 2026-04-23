@@ -17,76 +17,69 @@ const tips: ProTip[] = [
     title: "Stop the Gallery Clutter (WhatsApp Quick-Park)",
     description:
       "When a document hits your WhatsApp, don't just \"Save to Photos.\" Use the Share Sheet to send it directly to Doku.",
-    videoSrc: "/feature-videos/final_share.mp4",
+    videoSrc: "/pro-tips/tip1.mp4",
   },
   {
     id: "both-sides-rule",
     title: "Complete Identity, One Entry (Both-Sides Rule)",
     description:
       "Most IDs hide the address on the back. Upload both sides as one entry so you're never scrambling for proof of residence.",
-    videoSrc: "/feature-videos/final_file_name.mp4",
+    videoSrc: "/pro-tips/tip2.mp4",
   },
   {
     id: "entity-groups",
     title: "Your Assets, Organized (Entity Groups)",
     description:
       "Your life isn't one big folder. Group records by the assets they belong to, like cars or property, for instant retrieval.",
-    videoSrc: "/feature-videos/final_people_assets.mp4",
+    videoSrc: "/pro-tips/tip3.mp4",
   },
   {
     id: "swipe-secret",
     title: "The Swipe Secret (Navigation Tip)",
     description:
       "Don't miss a thing. Most entity rows are swipe-able. Just flick right on a document row to see the full category history.",
-    videoSrc: "/feature-videos/final_people_assets.mp4",
+    videoSrc: "/pro-tips/tip4.mp4",
   },
   {
     id: "deadline-discipline",
     title: "Turn Paper into Alerts (Deadline Discipline)",
     description:
       "Add an expiry date to your DL or Passport the moment you upload. Doku transforms static files into proactive notifications.",
-    videoSrc: "/feature-videos/final_life_tracking.mp4",
+    videoSrc: "/pro-tips/tip5.mp4",
   },
   {
     id: "quick-correction",
     title: "Precision isn't Permanent (Quick Correction)",
     description: "Precision isn't permanent. Fix a date error in two taps without having to re-upload the entire document.",
-    videoSrc: "/feature-videos/final_file_name.mp4",
-  },
-  {
-    id: "tax-year-anchor",
-    title: "Don't Compile Taxes in April (Tax Year Anchor)",
-    description:
-      "Tag investment proofs as you go. Come tax season, tap the Tax Year tag and export the whole bundle to your CA in one click.",
-    videoSrc: "/feature-videos/final_share.mp4",
+    videoSrc: "/pro-tips/tip6.mp4",
   },
   {
     id: "staff-vault",
     title: "The Household Staff Vault (Security Hack)",
     description:
       "Keep your home secure. Store Aadhaar and verification records for your driver or domestic help in their own dedicated entities.",
-    videoSrc: "/feature-videos/final_people_assets.mp4",
+    videoSrc: "/pro-tips/tip7.mp4",
   },
   {
     id: "medical-timeline",
     title: "The Medical History Timeline (Health Hack)",
     description:
       "Tag medical records to a specific person. When you're at the clinic, your family's medical history is a 5-second search away.",
-    videoSrc: "/feature-videos/final_file_name.mp4",
+    videoSrc: "/pro-tips/tip8.mp4",
   },
   {
     id: "smart-bundle-mix",
     title: "The Smart Bundle Mix (Share Logic)",
     description:
       "Sharing isn't all-or-nothing. Use \"Smart Bundle\" to gather files, then custom-pick exactly what stays in the final package.",
-    videoSrc: "/feature-videos/final_share.mp4",
+    videoSrc: "/pro-tips/tip9.mp4",
   },
   {
     id: "backup-choice",
     title: "The Backup Choice (Data Portability)",
     description:
       "Use .qv files for a perfect encrypted restore into Doku, or export a Zip via \"Share\" for a standard archive you can open anywhere.",
-    videoSrc: "/feature-videos/final_life_tracking.mp4",
+    videoSrc: "/pro-tips/tip10.mp4",
   },
 ];
 
@@ -155,6 +148,7 @@ export function PlaybookTabs() {
                 loop
                 muted
                 playsInline
+                preload="metadata"
                 controls={false}
                 className="h-auto w-full rounded-lg"
               >
