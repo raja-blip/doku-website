@@ -1,0 +1,124 @@
+"use client";
+
+import { BellDot, ChevronLeft, ChevronRight, Files, Fingerprint, Maximize2, Users } from "lucide-react";
+import { useCallback, useRef, useState } from "react";
+
+const slideIconMap = {
+  users: Users,
+  fingerprint: Fingerprint,
+  bellDot: BellDot,
+  files: Files,
+} as const;
+
+export type WalkthroughSlide = {
+  title: string;
+  description: string;
+  videoSrc: string;
+  iconKey: keyof typeof slideIconMap;
+};
+
+function enterFullscreen(video: HTMLVideoElement | null) {
+  if (!video) return;
+  const el = video as HTMLVideoElement & { webkitEnterFullscreen?: () => void };
+  if (el.requestFullscreen) {
+    void el.requestFullscreen();
+  } else if (el.webkitEnterFullscreen) {
+    el.webkitEnterFullscreen();
+  }
+}
+
+export function ProductWalkthrough({ slides }: { slides: WalkthroughSlide[] }) {
+  const [active, setActive] = useState(0);
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const count = slides.length;
+  const safeIndex = ((active % count) + count) % count;
+  const slide = slides[safeIndex];
+
+  const go = useCallback(
+    (dir: -1 | 1) => {
+      setActive((i) => (i + dir + count) % count);
+    },
+    [count],
+  );
+
+  return (
+    <div className="rounded-2xl border border-border bg-card p-4 sm:p-6">
+      <div className="flex flex-col gap-6 lg:flex-row lg:items-start lg:gap-10">
+        <div className="mx-auto flex w-full max-w-[280px] flex-col items-center gap-3 lg:mx-0 lg:shrink-0">
+          <div className="relative w-full overflow-hidden rounded-2xl border border-zinc-800 bg-black shadow-lg ring-1 ring-white/5">
+            <video
+              ref={videoRef}
+              key={slide.videoSrc}
+              controls
+              playsInline
+              preload="metadata"
+              className="aspect-[9/16] w-full object-contain"
+            >
+              <source src={slide.videoSrc} type="video/mp4" />
+            </video>
+          </div>
+          <button
+            type="button"
+            onClick={() => enterFullscreen(videoRef.current)}
+            className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3 py-1.5 text-xs text-zinc-300 transition hover:border-sky-400/40 hover:text-white"
+          >
+            <Maximize2 className="size-3.5" strokeWidth={1.5} aria-hidden />
+            Fullscreen
+          </button>
+        </div>
+
+        <div className="min-w-0 flex-1 space-y-5">
+          <div className="flex items-center justify-end gap-2">
+            <button
+              type="button"
+              aria-label="Previous clip"
+              onClick={() => go(-1)}
+              className="rounded-full border border-border bg-black/30 p-2 text-zinc-400 transition hover:border-zinc-500 hover:text-white"
+            >
+              <ChevronLeft className="size-5" strokeWidth={1.5} />
+            </button>
+            <button
+              type="button"
+              aria-label="Next clip"
+              onClick={() => go(1)}
+              className="rounded-full border border-border bg-black/30 p-2 text-zinc-400 transition hover:border-zinc-500 hover:text-white"
+            >
+              <ChevronRight className="size-5" strokeWidth={1.5} />
+            </button>
+          </div>
+
+          <div className="space-y-2">
+            <p className="text-[11px] font-medium uppercase tracking-[0.18em] text-zinc-500">
+              Clip {safeIndex + 1} of {count}
+            </p>
+            <h3 className="text-xl font-semibold text-white sm:text-2xl">{slide.title}</h3>
+            <p className="text-sm leading-relaxed text-zinc-400 sm:text-base">{slide.description}</p>
+          </div>
+
+          <div className="flex gap-2 overflow-x-auto pb-1 pt-1 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+            {slides.map((s, i) => {
+              const I = slideIconMap[s.iconKey];
+              const on = i === safeIndex;
+              return (
+                <button
+                  key={s.videoSrc}
+                  type="button"
+                  onClick={() => setActive(i)}
+                  aria-current={on ? "true" : undefined}
+                  className={`flex min-w-[5.5rem] shrink-0 flex-col items-center gap-1.5 rounded-xl border px-2.5 py-2 text-center transition ${
+                    on
+                      ? "border-sky-400/45 bg-sky-500/10 text-white"
+                      : "border-border bg-black/25 text-zinc-500 hover:border-zinc-600 hover:text-zinc-300"
+                  }`}
+                >
+                  <I className={`size-5 ${on ? "text-sky-400" : ""}`} strokeWidth={1} aria-hidden />
+                  <span className="line-clamp-2 text-[10px] font-medium leading-tight">{s.title}</span>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}

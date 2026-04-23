@@ -1,11 +1,21 @@
 import { CursorGlow } from "@/components/cursor-glow";
 import { FolderFallacyCard } from "@/components/folder-fallacy-card";
 import { MultiEntityEngineGraphic } from "@/components/multi-entity-engine";
+import { ProductWalkthrough } from "@/components/product-walkthrough";
 import { PlaybookTabs } from "@/components/playbook-tabs";
 import { Reveal } from "@/components/reveal";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { BellDot, Files, Fingerprint, Users, type LucideIcon } from "lucide-react";
+import { BellDot, Files, Fingerprint, Users } from "lucide-react";
 import Image from "next/image";
+
+const methodIconMap = {
+  users: Users,
+  fingerprint: Fingerprint,
+  bellDot: BellDot,
+  files: Files,
+} as const;
+
+type MethodIconKey = keyof typeof methodIconMap;
 
 const navItems = [
   { href: "#hero", label: "Hero" },
@@ -38,26 +48,30 @@ const problemCards = [
   },
 ] as const;
 
-const methodCards: { icon: LucideIcon; title: string; text: string }[] = [
+const methodCards: { iconKey: MethodIconKey; title: string; text: string; videoSrc: string }[] = [
   {
-    icon: Users,
+    iconKey: "users",
     title: "People & Assets",
     text: "Your life isn't one big folder. Doku maps documents to the people (Profiles) and assets (Cars, Property) they belong to.",
+    videoSrc: "/feature-videos/final_people_assets.mp4",
   },
   {
-    icon: Fingerprint,
+    iconKey: "fingerprint",
     title: "Precision Naming",
     text: "You define the type; Doku handles the architecture. Every file is instantly indexed with a standardized, retrievable name.",
+    videoSrc: "/feature-videos/final_file_name.mp4",
   },
   {
-    icon: BellDot,
+    iconKey: "bellDot",
     title: "Lifecycle Tracking",
     text: "A document is a deadline. Doku tracks expiry dates for your Passport, Insurance, and Licenses—alerting you before they become a crisis.",
+    videoSrc: "/feature-videos/final_life_tracking.mp4",
   },
   {
-    icon: Files,
+    iconKey: "files",
     title: "Instant Collation",
     text: "Stop the scavenger hunt. One tap gathers every document needed for a visa, loan, or application across all your profiles.",
+    videoSrc: "/feature-videos/final_share.mp4",
   },
 ];
 
@@ -172,7 +186,7 @@ export default function Home() {
           </div>
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:items-stretch xl:grid-cols-4">
             {methodCards.map((card) => {
-              const Icon = card.icon;
+              const Icon = methodIconMap[card.iconKey];
               return (
                 <article
                   key={card.title}
@@ -230,22 +244,20 @@ export default function Home() {
         <Reveal id="deep-dive" className="scroll-mt-24 space-y-6" delay={0.08}>
           <div className="space-y-2">
             <p className="text-xs uppercase tracking-[0.2em] text-zinc-500">The Deep Dive</p>
-            <h2 className="text-3xl font-semibold text-white sm:text-4xl">Product walkthrough placeholders</h2>
+            <h2 className="text-3xl font-semibold text-white sm:text-4xl">Product walkthrough</h2>
+            <p className="max-w-2xl text-sm text-zinc-400">
+              Vertical phone captures for each Doku Method pillar. On large screens the clip sits beside the story; on
+              phones, use the strip to jump clips or open fullscreen for a clearer view.
+            </p>
           </div>
-          <div className="grid gap-4 lg:grid-cols-2">
-            <div className="rounded-2xl border border-border bg-card p-4">
-              <p className="mb-3 text-sm text-zinc-400">Video Placeholder</p>
-              <div className="aspect-video rounded-xl border border-dashed border-zinc-700 bg-black/40" />
-            </div>
-            <div className="rounded-2xl border border-border bg-card p-4">
-              <p className="mb-3 text-sm text-zinc-400">Screenshot Placeholder Strip</p>
-              <div className="grid gap-2 sm:grid-cols-3">
-                <div className="aspect-[4/3] rounded-lg border border-dashed border-zinc-700 bg-black/40" />
-                <div className="aspect-[4/3] rounded-lg border border-dashed border-zinc-700 bg-black/40" />
-                <div className="aspect-[4/3] rounded-lg border border-dashed border-zinc-700 bg-black/40" />
-              </div>
-            </div>
-          </div>
+          <ProductWalkthrough
+            slides={methodCards.map(({ title, text, videoSrc, iconKey }) => ({
+              title,
+              description: text,
+              videoSrc,
+              iconKey,
+            }))}
+          />
         </Reveal>
 
         <Reveal id="playbook" className="scroll-mt-24 space-y-6" delay={0.1}>
