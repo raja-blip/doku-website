@@ -34,11 +34,24 @@ const tips: ProTip[] = [
     videoSrc: "/feature-videos/final_people_assets.mp4",
   },
   {
+    id: "swipe-secret",
+    title: "The Swipe Secret (Navigation Tip)",
+    description:
+      "Don't miss a thing. Most entity rows are swipe-able. Just flick right on a document row to see the full category history.",
+    videoSrc: "/feature-videos/final_people_assets.mp4",
+  },
+  {
     id: "deadline-discipline",
     title: "Turn Paper into Alerts (Deadline Discipline)",
     description:
       "Add an expiry date to your DL or Passport the moment you upload. Doku transforms static files into proactive notifications.",
     videoSrc: "/feature-videos/final_life_tracking.mp4",
+  },
+  {
+    id: "quick-correction",
+    title: "Precision isn't Permanent (Quick Correction)",
+    description: "Precision isn't permanent. Fix a date error in two taps without having to re-upload the entire document.",
+    videoSrc: "/feature-videos/final_file_name.mp4",
   },
   {
     id: "tax-year-anchor",
@@ -62,24 +75,11 @@ const tips: ProTip[] = [
     videoSrc: "/feature-videos/final_file_name.mp4",
   },
   {
-    id: "quick-correction",
-    title: "Precision isn't Permanent (Quick Correction)",
-    description: "Precision isn't permanent. Fix a date error in two taps without having to re-upload the entire document.",
-    videoSrc: "/feature-videos/final_file_name.mp4",
-  },
-  {
     id: "smart-bundle-mix",
     title: "The Smart Bundle Mix (Share Logic)",
     description:
       "Sharing isn't all-or-nothing. Use \"Smart Bundle\" to gather files, then custom-pick exactly what stays in the final package.",
     videoSrc: "/feature-videos/final_share.mp4",
-  },
-  {
-    id: "swipe-secret",
-    title: "The Swipe Secret (Navigation Tip)",
-    description:
-      "Don't miss a thing. Most entity rows are swipe-able. Just flick right on a document row to see the full category history.",
-    videoSrc: "/feature-videos/final_people_assets.mp4",
   },
   {
     id: "backup-choice",
