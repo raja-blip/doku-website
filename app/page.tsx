@@ -259,6 +259,38 @@ export default function Home() {
             <p className="max-w-xl text-base leading-relaxed text-zinc-300 sm:text-lg">
               Doku is the high-precision document vault for people who value order over chaos.
             </p>
+            <div className="flex flex-wrap gap-3">
+              <a
+                href="#"
+                aria-label="App Store"
+                className="group flex min-w-40 items-center gap-3 rounded-xl border border-border bg-black/30 px-4 py-2 transition hover:border-zinc-500"
+              >
+                <span className="inline-flex size-8 items-center justify-center rounded-lg border border-zinc-700 bg-zinc-900 text-zinc-300">
+                  <svg viewBox="0 0 24 24" aria-hidden="true" className="size-4 fill-current">
+                    <path d="M16.36 12.42c.02 2.02 1.77 2.7 1.79 2.71-.01.05-.28.95-.94 1.87-.56.79-1.15 1.58-2.07 1.6-.9.02-1.19-.53-2.23-.53-1.04 0-1.36.52-2.2.55-.88.03-1.56-.88-2.12-1.67-1.14-1.62-2-4.56-.84-6.58.58-1 1.62-1.64 2.74-1.66.86-.02 1.67.58 2.2.58.53 0 1.53-.72 2.58-.62.44.02 1.66.18 2.45 1.33-.06.04-1.46.86-1.36 2.42ZM14.65 6.17c.47-.57.8-1.35.71-2.14-.68.03-1.49.45-1.98 1.02-.44.5-.83 1.31-.73 2.08.76.06 1.53-.38 2-.96Z" />
+                  </svg>
+                </span>
+                <span className="leading-tight">
+                  <span className="block text-[10px] uppercase tracking-[0.12em] text-zinc-500">Download on the</span>
+                  <span className="block text-sm font-medium text-zinc-200 group-hover:text-white">App Store</span>
+                </span>
+              </a>
+              <a
+                href="#"
+                aria-label="Play Store"
+                className="group flex min-w-40 items-center gap-3 rounded-xl border border-border bg-black/30 px-4 py-2 transition hover:border-zinc-500"
+              >
+                <span className="inline-flex size-8 items-center justify-center rounded-lg border border-zinc-700 bg-zinc-900 text-zinc-300">
+                  <svg viewBox="0 0 24 24" aria-hidden="true" className="size-4 fill-current">
+                    <path d="M4.65 3.38a1.18 1.18 0 0 0-.65 1.05v15.14c0 .44.23.83.59 1.05L13.1 12 4.65 3.38Zm9.37 7.86 2.69-2.67-9.9-5.43 7.2 8.1Zm3.66-1.93-2.9 2.88 2.91 2.91 2.82-1.55c1-.55 1.01-1.98.01-2.53l-2.84-1.71Zm-3.65 3.44-7.16 8.08 9.83-5.41-2.67-2.67Z" />
+                  </svg>
+                </span>
+                <span className="leading-tight">
+                  <span className="block text-[10px] uppercase tracking-[0.12em] text-zinc-500">Get it on</span>
+                  <span className="block text-sm font-medium text-zinc-200 group-hover:text-white">Google Play</span>
+                </span>
+              </a>
+            </div>
           </div>
           <div className="group relative overflow-hidden rounded-2xl border border-zinc-800 bg-gradient-to-br from-zinc-900 to-black p-5 transition hover:border-zinc-600">
             <div className="mb-4 flex items-center justify-between">
