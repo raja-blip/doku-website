@@ -33,7 +33,7 @@ function columnHeadingId(columnIndex: number) {
 
 export function WalkthroughScreens({ columns }: WalkthroughScreensProps) {
   return (
-    <div className="space-y-5">
+    <div className="space-y-4 sm:space-y-5">
       <div className="space-y-1">
         <h3 className="text-lg font-semibold text-white sm:text-xl">Key product moments</h3>
         <p className="max-w-2xl text-sm text-zinc-500">
@@ -41,7 +41,7 @@ export function WalkthroughScreens({ columns }: WalkthroughScreensProps) {
         </p>
       </div>
 
-      <div className="grid gap-10 lg:grid-cols-3 lg:gap-6 xl:gap-8">
+      <div className="grid gap-6 sm:gap-8 lg:grid-cols-3 lg:gap-6 xl:gap-8">
         {columns.map((col, colIndex) => (
           <ColumnCarousel key={col.title} column={col} columnIndex={colIndex} />
         ))}
@@ -79,7 +79,7 @@ function ColumnCarousel({ column, columnIndex }: { column: WalkthroughColumn; co
 
   return (
     <section className="flex flex-col" aria-labelledby={headingId}>
-      <div className="mb-4 space-y-1">
+      <div className="mb-3 space-y-1 sm:mb-4">
         <h4 id={headingId} className="text-base font-semibold text-white">
           {title}
         </h4>
@@ -90,14 +90,14 @@ function ColumnCarousel({ column, columnIndex }: { column: WalkthroughColumn; co
         <ScreenSlide key={screen.src} screen={screen} />
 
         {n > 1 ? (
-          <div className="flex items-center justify-between gap-2 border-t border-white/10 px-2 py-2">
+          <div className="flex items-center justify-between gap-2 border-t border-white/10 px-2 py-1.5 sm:py-2">
             <button
               type="button"
               onClick={goPrev}
-              className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-white/10 text-zinc-300 transition hover:border-sky-400/40 hover:text-white"
+              className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-white/10 text-zinc-300 transition hover:border-sky-400/40 hover:text-white sm:h-9 sm:w-9"
               aria-label={`Previous ${title} screenshot`}
             >
-              <ChevronLeft className="h-5 w-5" aria-hidden />
+              <ChevronLeft className="h-4 w-4 sm:h-5 sm:w-5" aria-hidden />
             </button>
             <div className="flex flex-1 flex-wrap items-center justify-center gap-1.5">
               {screens.map((s, i) => (
@@ -116,16 +116,16 @@ function ColumnCarousel({ column, columnIndex }: { column: WalkthroughColumn; co
             <button
               type="button"
               onClick={goNext}
-              className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-white/10 text-zinc-300 transition hover:border-sky-400/40 hover:text-white"
+              className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-white/10 text-zinc-300 transition hover:border-sky-400/40 hover:text-white sm:h-9 sm:w-9"
               aria-label={`Next ${title} screenshot`}
             >
-              <ChevronRight className="h-5 w-5" aria-hidden />
+              <ChevronRight className="h-4 w-4 sm:h-5 sm:w-5" aria-hidden />
             </button>
           </div>
         ) : null}
 
-        <div className="border-t border-white/10 p-4">
-          <p className="text-sm leading-relaxed text-zinc-400">{screen.caption}</p>
+        <div className="border-t border-white/10 p-3 sm:p-4">
+          <p className="text-xs leading-relaxed text-zinc-400 sm:text-sm">{screen.caption}</p>
         </div>
       </article>
     </section>
@@ -136,7 +136,7 @@ function ScreenSlide({ screen }: { screen: WalkthroughScreen }) {
   const [broken, setBroken] = useState(false);
 
   return (
-    <div className="relative mx-auto aspect-[9/19] w-full max-w-[min(100%,280px)] bg-zinc-950 lg:max-w-none">
+    <div className="relative mx-auto aspect-[9/19] w-full max-w-[min(100%,220px)] bg-zinc-950 sm:max-w-[min(100%,250px)] lg:max-w-none">
       {broken ? (
         <div className="flex h-full min-h-[280px] flex-col items-center justify-center gap-2 p-4 text-center">
           <span className="text-xs text-zinc-500">Missing image</span>
