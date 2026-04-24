@@ -433,22 +433,22 @@ export default function Home() {
               <AccordionItem value="digi-locker">
                 <AccordionTrigger>Why not DigiLocker?</AccordionTrigger>
                 <AccordionContent>
-                  DigiLocker is a vault. Doku is a dashboard: it helps classify, track, and prepare your documents
-                  for action, not just storage.
+                  DigiLocker is for storage; Doku is for action. We help you classify, track, and prepare your
+                  documents for real-world workflows, not just keep them in a digital cabinet.
                 </AccordionContent>
               </AccordionItem>
               <AccordionItem value="drive">
                 <AccordionTrigger>Better than Drive?</AccordionTrigger>
                 <AccordionContent>
-                  Drive is excellent generic storage, but it can become a graveyard. Doku acts like a command center
-                  built specifically for paperwork workflows.
+                  Cloud drives are storage graveyards. Doku is a dedicated command center that turns passive files into
+                  an organized, actionable system built specifically for paperwork.
                 </AccordionContent>
               </AccordionItem>
               <AccordionItem value="safe">
                 <AccordionTrigger>Is it safe?</AccordionTrigger>
                 <AccordionContent>
-                  Doku follows an on-device encrypted model where sensitive records remain under your control, without
-                  server-side document access.
+                  Absolute safety. Doku uses local AES-256 encryption. Your sensitive records stay on your silicon,
+                  under your control, with zero server-side access to your documents.
                 </AccordionContent>
               </AccordionItem>
             </Accordion>
