@@ -50,7 +50,7 @@ const tips: ProTip[] = [
   {
     id: "quick-correction",
     title: "Precision isn't Permanent (Quick Correction)",
-    description: "Precision isn't permanent. Fix a date error in two taps without having to re-upload the entire document.",
+    description: "Precision isn't permanent. Fix a date error with a long press without having to re-upload the entire document.",
     videoSrc: "/pro-tips/tip6.mp4",
   },
   {

@@ -19,7 +19,7 @@ const methodIconMap = {
 type MethodIconKey = keyof typeof methodIconMap;
 
 const navItems = [
-  { href: "#hero", label: "Hero" },
+  { href: "#hero", label: "Doku" },
   { href: "#problem", label: "Problem" },
   { href: "#solution", label: "Solution" },
   { href: "#deep-dive", label: "Deep Dive" },
@@ -401,10 +401,6 @@ export default function Home() {
           <div className="space-y-2">
             <p className="text-xs uppercase tracking-[0.2em] text-zinc-500">The Deep Dive</p>
             <h2 className="text-3xl font-semibold text-white sm:text-4xl">Product walkthrough</h2>
-            <p className="max-w-2xl text-sm text-zinc-400">
-              Short vertical clips for each pillar, then three still tracks—setup, documents, and utilities—each with
-              its own carousel on large screens.
-            </p>
           </div>
           <ProductWalkthrough
             slides={methodCards.map(({ title, text, videoSrc, iconKey }) => ({
