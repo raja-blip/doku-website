@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Support | Doku",
-  description: "Support contact information for Doku.",
+  title: "Support | doku",
+  description: "Support contact information for doku.",
 };
 
 export default function SupportPage() {

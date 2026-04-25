@@ -1,4 +1,4 @@
-Context: I am the founder of Doku, an AI-powered personal document manager. I want to build a high-performance, precision-engineered landing page. Our competition isn't just DigiLocker; it's the "Manual Labor" of organized folders in Google Drive.
+Context: I am the founder of doku, a private, local-first document vault. I want to build a high-performance, precision-engineered landing page. Our competition isn't just DigiLocker; it's the "Manual Labor" of organized folders in Google Drive.
 
 Tech Stack: Next.js 14 (App Router), Tailwind CSS, Framer Motion for animations, and Shadcn/UI for components.
 
@@ -38,7 +38,7 @@ The "Thought-Provoking" FAQ:
 
 Use a Shadcn Accordion. Address the "Why not DigiLocker?" and "I'm already organized" questions head-on with candid, founder-led copy.
 
-Instructions for the AI: > * Use framer-motion for reveal animations on scroll.
+Instructions for collaborators: > * Use framer-motion for reveal animations on scroll.
 
 Ensure 100% mobile responsiveness (it must look as good on a Pixel/iPhone as it does on my 27" monitor).
 

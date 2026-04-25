@@ -16,7 +16,7 @@ const tips: ProTip[] = [
     id: "whatsapp-quick-park",
     title: "Stop the Gallery Clutter (WhatsApp Quick-Park)",
     description:
-      "When a document hits your WhatsApp, don't just \"Save to Photos.\" Use the Share Sheet to send it directly to Doku.",
+      "When a document hits your WhatsApp, don't just \"Save to Photos.\" Use the Share Sheet to send it directly to doku.",
     videoSrc: "/pro-tips/tip1.mp4",
   },
   {
@@ -44,7 +44,7 @@ const tips: ProTip[] = [
     id: "deadline-discipline",
     title: "Turn Paper into Alerts (Deadline Discipline)",
     description:
-      "Add an expiry date to your DL or Passport the moment you upload. Doku transforms static files into proactive notifications.",
+      "Add an expiry date to your DL or Passport the moment you upload. doku transforms static files into proactive notifications.",
     videoSrc: "/pro-tips/tip5.mp4",
   },
   {
@@ -63,7 +63,7 @@ const tips: ProTip[] = [
   {
     id: "medical-timeline",
     title: "Add a Medical Record",
-    description: "Add a medical record and upload all relevant documents to let Doku merge into one PDF for you.",
+    description: "Add a medical record and upload all relevant documents to let doku merge into one PDF for you.",
     videoSrc: "/pro-tips/tip8.mp4",
   },
   {
@@ -77,7 +77,7 @@ const tips: ProTip[] = [
     id: "backup-choice",
     title: "The Backup Choice (Data Portability)",
     description:
-      "Use .qv files for a perfect encrypted restore into Doku, or export a Zip via \"Share\" for a standard archive you can open anywhere.",
+      "Use .qv files for a perfect encrypted restore into doku, or export a Zip via \"Share\" for a standard archive you can open anywhere.",
     videoSrc: "/pro-tips/tip10.mp4",
   },
 ];
@@ -118,7 +118,7 @@ export function PlaybookTabs() {
   return (
     <section className="rounded-2xl border border-zinc-800 bg-zinc-950 p-3 sm:p-6">
       <div className="mb-3 flex items-center justify-between gap-3 sm:mb-4">
-        <h3 className="text-lg font-semibold text-white sm:text-2xl">Doku Pro-Tips</h3>
+        <h3 className="text-lg font-semibold text-white sm:text-2xl">doku Pro-Tips</h3>
         <p className="text-xs uppercase tracking-[0.16em] text-zinc-500">
           Tip {activeIndex + 1} of {tips.length}
         </p>

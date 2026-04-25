@@ -18,7 +18,7 @@ Structure the page as follows:
 
 'Active Management' (Expiry alerts for Passports/Insurance)
 
-'Zero-AI Privacy' (100% On-device, no cloud-reading/OCR)
+'On-device privacy' (100% local; no cloud document access)
 
 'Instant Collation' (Gather all docs for a Visa/Loan in one tap).
 

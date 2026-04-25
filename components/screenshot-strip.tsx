@@ -7,7 +7,7 @@ import { useState } from "react";
 const screens = [
   {
     src: "/app-screenshots/screen-08.png",
-    alt: "Doku app screenshot 8",
+    alt: "doku app screenshot 8",
     title: "Clean sharing for real-life collaboration",
     description:
       "Share the right document quickly with family, finance teams, or advisors when needed.",
@@ -15,7 +15,7 @@ const screens = [
   },
   {
     src: "/app-screenshots/screen-09.png",
-    alt: "Doku app screenshot 9",
+    alt: "doku app screenshot 9",
     title: "Designed to feel instant on mobile",
     description:
       "Smooth transitions, high readability, and performance-tuned rendering on every device.",
@@ -23,10 +23,10 @@ const screens = [
   },
   {
     src: "/app-screenshots/screen-10.png",
-    alt: "Doku app screenshot 10",
+    alt: "doku app screenshot 10",
     title: "From storage to decision intelligence",
     description:
-      "Doku turns static files into insights so your documents actively work for you.",
+      "doku turns static files into insights so your documents actively work for you.",
     bullets: ["Insight-driven UX", "Contextual understanding", "Future-ready personal knowledge"],
   },
 ];

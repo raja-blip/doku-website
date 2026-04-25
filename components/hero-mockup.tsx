@@ -16,7 +16,7 @@ export function HeroMockup() {
       <div className="absolute -inset-3 -z-10 rounded-[3rem] bg-gradient-to-br from-sky-500/15 to-lime-300/10 blur-2xl" />
       <Image
         src="/mobile-mockup.png"
-        alt="Doku mobile app mockup"
+        alt="doku mobile app mockup"
         width={900}
         height={1600}
         className="rounded-[2.2rem] border border-border object-cover"

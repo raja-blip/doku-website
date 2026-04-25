@@ -19,7 +19,7 @@ const methodIconMap = {
 type MethodIconKey = keyof typeof methodIconMap;
 
 const navItems = [
-  { href: "#hero", label: "Doku" },
+  { href: "#hero", label: "doku" },
   { href: "#problem", label: "Problem" },
   { href: "#solution", label: "Solution" },
   { href: "#deep-dive", label: "Deep Dive" },
@@ -54,19 +54,19 @@ const methodCards: { iconKey: MethodIconKey; title: string; text: string; videoS
   {
     iconKey: "users",
     title: "People & Assets",
-    text: "Your life isn't one big folder. Doku maps documents to the people (Profiles) and assets (Cars, Property) they belong to.",
+    text: "Your life isn't one big folder. doku maps documents to the people (Profiles) and assets (Cars, Property) they belong to.",
     videoSrc: "/feature-videos/final_people_assets.mp4",
   },
   {
     iconKey: "fingerprint",
     title: "Precision Naming",
-    text: "You define the type; Doku handles the architecture. Every file is instantly indexed with a standardized, retrievable name.",
+    text: "You define the type; doku handles the architecture. Every file is instantly indexed with a standardized, retrievable name.",
     videoSrc: "/feature-videos/final_file_name.mp4",
   },
   {
     iconKey: "bellDot",
     title: "Lifecycle Tracking",
-    text: "A document is a deadline. Doku tracks expiry dates for your Passport, Insurance, and Licenses—alerting you before they become a crisis.",
+    text: "A document is a deadline. doku tracks expiry dates for your Passport, Insurance, and Licenses—alerting you before they become a crisis.",
     videoSrc: "/feature-videos/final_life_tracking.mp4",
   },
   {
@@ -85,7 +85,7 @@ const walkthroughColumns = [
       {
         src: "/app-screenshots/setup/s1.png",
         tag: "Setup",
-        callout: "Create Doku Locker",
+        callout: "Create doku Locker",
         caption: "Enter a 6 digit master PIN.",
       },
       {
@@ -103,7 +103,7 @@ const walkthroughColumns = [
       {
         src: "/app-screenshots/documents/d1.png",
         tag: "Documents",
-        callout: "Doku home",
+        callout: "doku home",
         caption: "View quick access tiles and categories.",
       },
       {
@@ -182,7 +182,7 @@ const walkthroughColumns = [
         src: "/app-screenshots/utilities/u4.PNG",
         tag: "Delete Locker",
         callout: "Delete locker",
-        caption: "Purge all your data from Doku if you don't need them.",
+        caption: "Purge all your data from doku if you don't need them.",
       },
     ],
   },
@@ -191,11 +191,11 @@ const walkthroughColumns = [
 const softwareApplicationSchema = {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
-  name: "Doku",
+  name: "doku",
   applicationCategory: "ProductivityApplication",
   operatingSystem: "iOS, Android",
   description:
-    "Doku is a high-precision document vault that maps records to people and assets, with precision naming, lifecycle alerts, and instant collation.",
+    "doku is a private, local-first document vault. Securely encrypt, classify, and manage your sensitive records on-device with zero-cloud access.",
 };
 
 export default function Home() {
@@ -205,12 +205,12 @@ export default function Home() {
         <nav className="mx-auto flex w-full max-w-6xl items-center gap-4 overflow-x-auto px-5 py-3 sm:gap-6 sm:px-8">
           <a
             href="#hero"
-            aria-label="Doku home"
+            aria-label="doku home"
             className="shrink-0 rounded-full border border-border bg-card p-1 transition hover:border-zinc-500"
           >
             <Image
               src="/app-screenshots/icon.png"
-              alt="Doku app icon"
+              alt="doku app icon"
               width={24}
               height={24}
               className="rounded-full"
@@ -243,12 +243,12 @@ export default function Home() {
           <div className="space-y-6">
             {heroBrandMockVariant === "refined-pill" ? (
               <p className="inline-flex rounded-full border border-sky-500/25 bg-sky-500/10 px-3.5 py-1 text-xs font-medium uppercase tracking-[0.16em] text-sky-200/90">
-                Doku by Listolabs
+                doku by Listolabs
               </p>
             ) : (
               <p className="inline-flex items-center gap-2 text-sm font-medium tracking-[0.08em] text-zinc-200">
                 <span className="rounded-full border border-sky-500/40 bg-sky-500/20 px-2 py-0.5 text-[11px] uppercase text-sky-200">
-                  Doku
+                  doku
                 </span>
                 <span className="uppercase text-zinc-400">by Listolabs</span>
               </p>
@@ -257,7 +257,7 @@ export default function Home() {
               Where is it? shouldn&apos;t be the start of your paperwork.
             </h1>
             <p className="max-w-xl text-base leading-relaxed text-zinc-300 sm:text-lg">
-              Doku is the high-precision document vault for people who value order over chaos.
+              doku is the high-precision document vault for people who value order over chaos.
             </p>
             <div className="flex flex-wrap gap-3">
               <a
@@ -305,7 +305,7 @@ export default function Home() {
               <div className="relative aspect-[9/19.5] w-full overflow-hidden rounded-[2rem] border border-zinc-700 bg-zinc-950 shadow-2xl shadow-black/60 ring-1 ring-white/5">
                 <Image
                   src="/app-screenshots/app-home.png"
-                  alt="Doku app home screen"
+                  alt="doku app home screen"
                   fill
                   priority
                   sizes="(max-width: 1024px) 45vw, 240px"
@@ -338,7 +338,7 @@ export default function Home() {
         <Reveal id="solution" className="scroll-mt-24 space-y-6" delay={0.05}>
           <div className="space-y-2">
             <p className="text-xs uppercase tracking-[0.2em] text-zinc-500">The Solution</p>
-            <h2 className="text-3xl font-semibold text-white sm:text-4xl">The Doku Method</h2>
+            <h2 className="text-3xl font-semibold text-white sm:text-4xl">The doku Method</h2>
           </div>
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:items-stretch xl:grid-cols-4">
             {methodCards.map((card) => {
@@ -384,7 +384,7 @@ export default function Home() {
               </span>
             </div>
             <p className="text-sm leading-relaxed text-zinc-400">
-              Doku is built for your household, but filing is <span className="text-zinc-200">profile-first</span>: each
+              doku is built for your household, but filing is <span className="text-zinc-200">profile-first</span>: each
               person (you, spouse, kids, parents) keeps their own Aadhaar, passport, immunization, and school records.
               <span className="text-zinc-200"> Entities</span> are for things—your car, home, or job—and their paperwork
               stays separate. Switch context in one gesture—no relabeling, no duplicate folders.
@@ -418,7 +418,7 @@ export default function Home() {
         <Reveal id="playbook" className="scroll-mt-24 space-y-6" delay={0.1}>
           <div className="space-y-2">
             <p className="text-xs uppercase tracking-[0.2em] text-zinc-500">The Playbook</p>
-            <h2 className="text-3xl font-semibold text-white sm:text-4xl">How to use Doku effectively</h2>
+            <h2 className="text-3xl font-semibold text-white sm:text-4xl">How to use doku effectively</h2>
           </div>
           <PlaybookTabs />
         </Reveal>
@@ -435,7 +435,7 @@ export default function Home() {
                 <AccordionContent className="space-y-3">
                   <p>
                     DigiLocker is for government-issued compliance—i.e., fetch and store government-issued documents
-                    that are largely stored as flat documents; Doku is for your entire personal ecosystem. We help you
+                    that are largely stored as flat documents; doku is for your entire personal ecosystem. We help you
                     curate, structure, and manage the 80% of your life—like property deeds, private contracts, and
                     family travel—that isn&apos;t sitting on a government server.
                   </p>
@@ -451,12 +451,12 @@ export default function Home() {
                 <AccordionContent className="space-y-3">
                   <p>
                     Cloud drives are storage graveyards. They require a lot of time and discipline to meticulously
-                    catalog, update, and replace documents. It depends a lot on an individual&apos;s memory. Doku is a
+                    catalog, update, and replace documents. It depends a lot on an individual&apos;s memory. doku is a
                     dedicated command center that turns passive files into an organized, actionable system built
                     specifically for paperwork.
                   </p>
                   <p>
-                    As long as you spend some time initially to catalog your paperwork, Doku makes it very easy to
+                    As long as you spend some time initially to catalog your paperwork, doku makes it very easy to
                     manage them over time with timely alerts, easy updates, and instant retrieval.
                   </p>
                 </AccordionContent>
@@ -465,7 +465,7 @@ export default function Home() {
                 <AccordionTrigger>Is it safe?</AccordionTrigger>
                 <AccordionContent className="space-y-3">
                   <p>
-                    Absolute safety. Doku uses local AES-256 encryption. Your sensitive records stay on your device,
+                    Absolute safety. doku uses local AES-256 encryption. Your sensitive records stay on your device,
                     under your control, with zero server-side access to your documents.
                   </p>
                   <p>
@@ -504,7 +504,7 @@ export default function Home() {
               <p className="flex items-center gap-2 text-sm text-zinc-400">
                 <Image
                   src="/app-screenshots/icon.png"
-                  alt="Doku icon"
+                  alt="doku icon"
                   width={18}
                   height={18}
                   className="rounded-full"

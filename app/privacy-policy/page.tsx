@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy | Doku",
-  description: "Privacy policy for the Doku app.",
+  title: "Privacy Policy | doku",
+  description: "Privacy policy for the doku app.",
 };
 
 export default function PrivacyPolicyPage() {
@@ -15,7 +15,7 @@ export default function PrivacyPolicyPage() {
 
         <div className="mt-8 space-y-6 text-sm leading-relaxed text-zinc-300 sm:text-base">
           <p>
-            Doku is designed as a local-only vault. We do not collect, store, or have any access to your documents or
+            doku is designed as a local-only vault. We do not collect, store, or have any access to your documents or
             biometric data.
           </p>
 

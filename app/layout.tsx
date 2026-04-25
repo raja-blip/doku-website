@@ -12,17 +12,21 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const siteDescription =
+  "doku is a private, local-first document vault. Securely encrypt, classify, and manage your sensitive records on-device with zero-cloud access.";
+
 export const metadata: Metadata = {
   metadataBase: new URL("https://hellodoku.com"),
-  title: "Doku | Your Personal Brain For Documents",
-  description:
-    "Doku is an AI-powered personal document manager that turns scattered files into instant clarity.",
+  title: "doku | Your Personal Brain For Documents",
+  description: siteDescription,
   openGraph: {
     type: "website",
-    siteName: "Doku",
+    siteName: "doku",
+    description: siteDescription,
   },
   twitter: {
     card: "summary_large_image",
+    description: siteDescription,
   },
 };
 

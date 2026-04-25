@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Google Play | Coming Soon",
-  description: "Doku on Google Play is currently in closed testing.",
+  description: "doku on Google Play is currently in closed testing.",
 };
 
 export default function PlayStoreComingSoonPage() {
@@ -12,7 +12,7 @@ export default function PlayStoreComingSoonPage() {
         <p className="text-xs uppercase tracking-[0.16em] text-zinc-500">Google Play</p>
         <h1 className="mt-3 text-3xl font-semibold tracking-tight text-white sm:text-4xl">Coming Soon</h1>
         <p className="mt-4 max-w-2xl text-sm leading-relaxed text-zinc-300 sm:text-base">
-          Doku is currently under closed testing on Android. The public Google Play listing will be available soon.
+          doku is currently under closed testing on Android. The public Google Play listing will be available soon.
         </p>
         <p className="mt-6 text-sm text-zinc-400">
           Need early access? Reach out at{" "}
