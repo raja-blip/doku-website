@@ -432,23 +432,46 @@ export default function Home() {
             <Accordion type="single" collapsible>
               <AccordionItem value="digi-locker">
                 <AccordionTrigger>Why not DigiLocker?</AccordionTrigger>
-                <AccordionContent>
-                  DigiLocker is for storage; Doku is for action. We help you classify, track, and prepare your
-                  documents for real-world workflows, not just keep them in a digital cabinet.
+                <AccordionContent className="space-y-3">
+                  <p>
+                    DigiLocker is for government-issued compliance—i.e., fetch and store government-issued documents
+                    that are largely stored as flat documents; Doku is for your entire personal ecosystem. We help you
+                    curate, structure, and manage the 80% of your life—like property deeds, private contracts, and
+                    family travel—that isn&apos;t sitting on a government server.
+                  </p>
+                  <p>
+                    Documents on DigiLocker are accepted as valid proofs, but they cover only a portion of your
+                    document-related needs. In addition, server-side issues are common, and DigiLocker struggles to be a
+                    fail-safe vault for instant retrieval.
+                  </p>
                 </AccordionContent>
               </AccordionItem>
               <AccordionItem value="drive">
                 <AccordionTrigger>Better than Drive?</AccordionTrigger>
-                <AccordionContent>
-                  Cloud drives are storage graveyards. Doku is a dedicated command center that turns passive files into
-                  an organized, actionable system built specifically for paperwork.
+                <AccordionContent className="space-y-3">
+                  <p>
+                    Cloud drives are storage graveyards. They require a lot of time and discipline to meticulously
+                    catalog, update, and replace documents. It depends a lot on an individual&apos;s memory. Doku is a
+                    dedicated command center that turns passive files into an organized, actionable system built
+                    specifically for paperwork.
+                  </p>
+                  <p>
+                    As long as you spend some time initially to catalog your paperwork, Doku makes it very easy to
+                    manage them over time with timely alerts, easy updates, and instant retrieval.
+                  </p>
                 </AccordionContent>
               </AccordionItem>
               <AccordionItem value="safe">
                 <AccordionTrigger>Is it safe?</AccordionTrigger>
-                <AccordionContent>
-                  Absolute safety. Doku uses local AES-256 encryption. Your sensitive records stay on your silicon,
-                  under your control, with zero server-side access to your documents.
+                <AccordionContent className="space-y-3">
+                  <p>
+                    Absolute safety. Doku uses local AES-256 encryption. Your sensitive records stay on your device,
+                    under your control, with zero server-side access to your documents.
+                  </p>
+                  <p>
+                    If you decide to change your phone, for example, you can create an encrypted backup, store it on a
+                    drive, and then restore it easily on your new device.
+                  </p>
                 </AccordionContent>
               </AccordionItem>
             </Accordion>
