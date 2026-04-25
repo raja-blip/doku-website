@@ -13,9 +13,17 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://hellodoku.com"),
   title: "Doku | Your Personal Brain For Documents",
   description:
     "Doku is an AI-powered personal document manager that turns scattered files into instant clarity.",
+  openGraph: {
+    type: "website",
+    siteName: "Doku",
+  },
+  twitter: {
+    card: "summary_large_image",
+  },
 };
 
 export default function RootLayout({
