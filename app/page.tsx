@@ -6,7 +6,7 @@ import { WalkthroughScreens } from "@/components/walkthrough-screens";
 import { PlaybookTabs } from "@/components/playbook-tabs";
 import { Reveal } from "@/components/reveal";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { BellDot, Files, Fingerprint, Users, Youtube } from "lucide-react";
+import { BellDot, Files, Fingerprint, Users } from "lucide-react";
 import Image from "next/image";
 
 const methodIconMap = {
@@ -520,7 +520,9 @@ export default function Home() {
                   className="group flex min-w-40 items-center gap-3 rounded-xl border border-red-500/30 bg-red-500/10 px-4 py-2 transition hover:border-red-400/60 hover:bg-red-500/15"
                 >
                   <span className="inline-flex size-8 items-center justify-center rounded-lg border border-red-500/30 bg-red-500/15 text-red-300">
-                    <Youtube aria-hidden className="size-4" />
+                    <svg viewBox="0 0 24 24" aria-hidden="true" className="size-[18px] fill-current">
+                      <path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.6 3.6 12 3.6 12 3.6s-7.6 0-9.4.5A3 3 0 0 0 .5 6.2 31.5 31.5 0 0 0 0 12a31.5 31.5 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.8.5 9.4.5 9.4.5s7.6 0 9.4-.5a3 3 0 0 0 2.1-2.1A31.5 31.5 0 0 0 24 12a31.5 31.5 0 0 0-.5-5.8ZM9.6 15.6V8.4L15.9 12l-6.3 3.6Z" />
+                    </svg>
                   </span>
                   <span className="leading-tight">
                     <span className="block text-[10px] uppercase tracking-[0.12em] text-red-200/70">Watch us on</span>
