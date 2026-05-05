@@ -259,7 +259,24 @@ export default function Home() {
             <p className="max-w-xl text-base leading-relaxed text-zinc-300 sm:text-lg">
               doku is the high-precision document vault for people who value order over chaos.
             </p>
-            <div className="flex flex-wrap gap-3">
+            <div className="flex max-w-xl flex-wrap gap-3">
+              <a
+                href="https://www.youtube.com/channel/UCVgS7aX2hmMG_GO-KWH0LZw/"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="YouTube channel"
+                className="group flex h-12 min-w-40 items-center gap-3 rounded-xl border border-red-500/30 bg-red-500/10 px-4 py-2 transition hover:border-red-400/60 hover:bg-red-500/15"
+              >
+                <span className="inline-flex size-8 items-center justify-center rounded-lg border border-red-500/30 bg-red-500/15 text-red-300">
+                  <svg viewBox="0 0 24 24" aria-hidden="true" className="size-[18px] fill-current">
+                    <path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.6 3.6 12 3.6 12 3.6s-7.6 0-9.4.5A3 3 0 0 0 .5 6.2 31.5 31.5 0 0 0 0 12a31.5 31.5 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.8.5 9.4.5 9.4.5s7.6 0 9.4-.5a3 3 0 0 0 2.1-2.1A31.5 31.5 0 0 0 24 12a31.5 31.5 0 0 0-.5-5.8ZM9.6 15.6V8.4L15.9 12l-6.3 3.6Z" />
+                  </svg>
+                </span>
+                <span className="leading-tight">
+                  <span className="block text-[10px] uppercase tracking-[0.12em] text-red-200/70">Watch us on</span>
+                  <span className="block text-sm font-medium text-red-100 group-hover:text-white">YouTube</span>
+                </span>
+              </a>
               <a
                 href="https://apps.apple.com/in/app/doku-your-smart-id-locker/id6761997185"
                 target="_blank"
@@ -283,7 +300,7 @@ export default function Home() {
                 className="group flex h-12 min-w-40 items-center gap-3 rounded-xl border border-border bg-black/30 px-4 py-2 transition hover:border-zinc-500"
               >
                 <span className="inline-flex size-8 items-center justify-center rounded-lg border border-zinc-700 bg-zinc-900 text-zinc-300">
-                  <svg viewBox="0 0 24 24" aria-hidden="true" className="size-[18px] fill-current">
+                  <svg viewBox="0 0 24 24" aria-hidden="true" className="size-5 fill-current">
                     <path d="M4.65 3.38a1.18 1.18 0 0 0-.65 1.05v15.14c0 .44.23.83.59 1.05L13.1 12 4.65 3.38Zm9.37 7.86 2.69-2.67-9.9-5.43 7.2 8.1Zm3.66-1.93-2.9 2.88 2.91 2.91 2.82-1.55c1-.55 1.01-1.98.01-2.53l-2.84-1.71Zm-3.65 3.44-7.16 8.08 9.83-5.41-2.67-2.67Z" />
                   </svg>
                 </span>
@@ -517,7 +534,7 @@ export default function Home() {
                   target="_blank"
                   rel="noreferrer"
                   aria-label="YouTube channel"
-                  className="group flex min-w-40 items-center gap-3 rounded-xl border border-red-500/30 bg-red-500/10 px-4 py-2 transition hover:border-red-400/60 hover:bg-red-500/15"
+                  className="group flex h-12 min-w-40 items-center gap-3 rounded-xl border border-red-500/30 bg-red-500/10 px-4 py-2 transition hover:border-red-400/60 hover:bg-red-500/15"
                 >
                   <span className="inline-flex size-8 items-center justify-center rounded-lg border border-red-500/30 bg-red-500/15 text-red-300">
                     <svg viewBox="0 0 24 24" aria-hidden="true" className="size-[18px] fill-current">
@@ -554,7 +571,7 @@ export default function Home() {
                   className="group flex h-12 min-w-40 items-center gap-3 rounded-xl border border-border bg-black/30 px-4 py-2 transition hover:border-zinc-500"
                 >
                   <span className="inline-flex size-8 items-center justify-center rounded-lg border border-zinc-700 bg-zinc-900 text-zinc-300">
-                    <svg viewBox="0 0 24 24" aria-hidden="true" className="size-[18px] fill-current">
+                    <svg viewBox="0 0 24 24" aria-hidden="true" className="size-5 fill-current">
                       <path d="M4.65 3.38a1.18 1.18 0 0 0-.65 1.05v15.14c0 .44.23.83.59 1.05L13.1 12 4.65 3.38Zm9.37 7.86 2.69-2.67-9.9-5.43 7.2 8.1Zm3.66-1.93-2.9 2.88 2.91 2.91 2.82-1.55c1-.55 1.01-1.98.01-2.53l-2.84-1.71Zm-3.65 3.44-7.16 8.08 9.83-5.41-2.67-2.67Z" />
                     </svg>
                   </span>
