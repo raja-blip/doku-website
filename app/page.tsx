@@ -282,7 +282,7 @@ export default function Home() {
                 target="_blank"
                 rel="noreferrer"
                 aria-label="App Store"
-                className="group flex h-12 min-w-40 items-center gap-3 rounded-xl border border-border bg-black/30 px-4 py-2 transition hover:border-zinc-500"
+                className="group flex h-12 w-48 shrink-0 items-center gap-3 rounded-xl border border-border bg-black/30 px-3.5 py-2 transition hover:border-zinc-500"
               >
                 <span className="inline-flex size-8 items-center justify-center rounded-lg border border-zinc-700 bg-zinc-900 text-zinc-300">
                   <svg viewBox="0 0 24 24" aria-hidden="true" className="size-[18px] fill-current">
@@ -290,14 +290,14 @@ export default function Home() {
                   </svg>
                 </span>
                 <span className="leading-tight">
-                  <span className="block text-[10px] uppercase tracking-[0.12em] text-zinc-500">Download on the</span>
+                  <span className="block text-[9px] uppercase tracking-[0.08em] text-zinc-500">Download on the</span>
                   <span className="block text-sm font-medium text-zinc-200 group-hover:text-white">App Store</span>
                 </span>
               </a>
               <a
                 href="/play-store"
                 aria-label="Play Store"
-                className="group flex h-12 min-w-40 items-center gap-3 rounded-xl border border-border bg-black/30 px-4 py-2 transition hover:border-zinc-500"
+                className="group flex h-12 w-48 shrink-0 items-center gap-3 rounded-xl border border-border bg-black/30 px-3.5 py-2 transition hover:border-zinc-500"
               >
                 <span className="inline-flex size-8 items-center justify-center rounded-lg border border-zinc-700 bg-zinc-900 text-zinc-300">
                   <svg viewBox="0 0 24 24" aria-hidden="true" className="size-5 fill-current">
@@ -551,7 +551,7 @@ export default function Home() {
                   target="_blank"
                   rel="noreferrer"
                   aria-label="App Store"
-                  className="group flex h-12 min-w-40 items-center gap-3 rounded-xl border border-border bg-black/30 px-4 py-2 transition hover:border-zinc-500"
+                  className="group flex h-12 w-48 shrink-0 items-center gap-3 rounded-xl border border-border bg-black/30 px-3.5 py-2 transition hover:border-zinc-500"
                 >
                   <span className="inline-flex size-8 items-center justify-center rounded-lg border border-zinc-700 bg-zinc-900 text-zinc-300">
                     <svg viewBox="0 0 24 24" aria-hidden="true" className="size-[18px] fill-current">
@@ -559,7 +559,7 @@ export default function Home() {
                     </svg>
                   </span>
                   <span className="leading-tight">
-                    <span className="block text-[10px] uppercase tracking-[0.12em] text-zinc-500">
+                    <span className="block text-[9px] uppercase tracking-[0.08em] text-zinc-500">
                       Download on the
                     </span>
                     <span className="block text-sm font-medium text-zinc-200 group-hover:text-white">App Store</span>
@@ -568,7 +568,7 @@ export default function Home() {
                 <a
                   href="/play-store"
                   aria-label="Play Store"
-                  className="group flex h-12 min-w-40 items-center gap-3 rounded-xl border border-border bg-black/30 px-4 py-2 transition hover:border-zinc-500"
+                  className="group flex h-12 w-48 shrink-0 items-center gap-3 rounded-xl border border-border bg-black/30 px-3.5 py-2 transition hover:border-zinc-500"
                 >
                   <span className="inline-flex size-8 items-center justify-center rounded-lg border border-zinc-700 bg-zinc-900 text-zinc-300">
                     <svg viewBox="0 0 24 24" aria-hidden="true" className="size-5 fill-current">
