@@ -265,7 +265,7 @@ export default function Home() {
                 target="_blank"
                 rel="noreferrer"
                 aria-label="YouTube channel"
-                className="group flex h-12 w-48 shrink-0 items-center gap-3 rounded-xl border border-red-500/30 bg-red-500/10 px-3.5 py-2 transition hover:border-red-400/60 hover:bg-red-500/15 sm:w-44 lg:w-48"
+                className="group flex h-12 w-44 shrink-0 items-center gap-3 rounded-xl border border-red-500/30 bg-red-500/10 px-3.5 py-2 transition hover:border-red-400/60 hover:bg-red-500/15"
               >
                 <span className="inline-flex size-8 items-center justify-center rounded-lg border border-red-500/30 bg-red-500/15 text-red-300">
                   <svg viewBox="0 0 24 24" aria-hidden="true" className="size-[18px] fill-current">
@@ -282,7 +282,7 @@ export default function Home() {
                 target="_blank"
                 rel="noreferrer"
                 aria-label="App Store"
-                className="group flex h-12 w-48 shrink-0 items-center gap-3 rounded-xl border border-border bg-black/30 px-3.5 py-2 transition hover:border-zinc-500 sm:w-44 lg:w-48"
+                className="group flex h-12 w-44 shrink-0 items-center gap-3 rounded-xl border border-border bg-black/30 px-3.5 py-2 transition hover:border-zinc-500"
               >
                 <span className="inline-flex size-8 items-center justify-center rounded-lg border border-zinc-700 bg-zinc-900 text-zinc-300">
                   <svg viewBox="0 0 24 24" aria-hidden="true" className="size-[18px] fill-current">
@@ -297,7 +297,7 @@ export default function Home() {
               <a
                 href="/play-store"
                 aria-label="Play Store"
-                className="group flex h-12 w-48 shrink-0 items-center gap-3 rounded-xl border border-border bg-black/30 px-3.5 py-2 transition hover:border-zinc-500 sm:w-44 lg:w-48"
+                className="group flex h-12 w-44 shrink-0 items-center gap-3 rounded-xl border border-border bg-black/30 px-3.5 py-2 transition hover:border-zinc-500"
               >
                 <span className="inline-flex size-8 items-center justify-center rounded-lg border border-zinc-700 bg-zinc-900 text-zinc-300">
                   <svg viewBox="0 0 24 24" aria-hidden="true" className="size-5 fill-current">
@@ -534,7 +534,7 @@ export default function Home() {
                   target="_blank"
                   rel="noreferrer"
                   aria-label="YouTube channel"
-                  className="group flex h-12 w-48 shrink-0 items-center gap-3 rounded-xl border border-red-500/30 bg-red-500/10 px-3.5 py-2 transition hover:border-red-400/60 hover:bg-red-500/15 sm:w-44 lg:w-48"
+                  className="group flex h-12 w-44 shrink-0 items-center gap-3 rounded-xl border border-red-500/30 bg-red-500/10 px-3.5 py-2 transition hover:border-red-400/60 hover:bg-red-500/15"
                 >
                   <span className="inline-flex size-8 items-center justify-center rounded-lg border border-red-500/30 bg-red-500/15 text-red-300">
                     <svg viewBox="0 0 24 24" aria-hidden="true" className="size-[18px] fill-current">
@@ -551,7 +551,7 @@ export default function Home() {
                   target="_blank"
                   rel="noreferrer"
                   aria-label="App Store"
-                  className="group flex h-12 w-48 shrink-0 items-center gap-3 rounded-xl border border-border bg-black/30 px-3.5 py-2 transition hover:border-zinc-500 sm:w-44 lg:w-48"
+                  className="group flex h-12 w-44 shrink-0 items-center gap-3 rounded-xl border border-border bg-black/30 px-3.5 py-2 transition hover:border-zinc-500"
                 >
                   <span className="inline-flex size-8 items-center justify-center rounded-lg border border-zinc-700 bg-zinc-900 text-zinc-300">
                     <svg viewBox="0 0 24 24" aria-hidden="true" className="size-[18px] fill-current">
@@ -568,7 +568,7 @@ export default function Home() {
                 <a
                   href="/play-store"
                   aria-label="Play Store"
-                  className="group flex h-12 w-48 shrink-0 items-center gap-3 rounded-xl border border-border bg-black/30 px-3.5 py-2 transition hover:border-zinc-500 sm:w-44 lg:w-48"
+                  className="group flex h-12 w-44 shrink-0 items-center gap-3 rounded-xl border border-border bg-black/30 px-3.5 py-2 transition hover:border-zinc-500"
                 >
                   <span className="inline-flex size-8 items-center justify-center rounded-lg border border-zinc-700 bg-zinc-900 text-zinc-300">
                     <svg viewBox="0 0 24 24" aria-hidden="true" className="size-5 fill-current">
