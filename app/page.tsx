@@ -295,7 +295,9 @@ export default function Home() {
                 </span>
               </a>
               <a
-                href="/play-store"
+                href="https://play.google.com/store/apps/details?id=com.listolabs.quickvault"
+                target="_blank"
+                rel="noreferrer"
                 aria-label="Play Store"
                 className="group flex h-12 w-44 shrink-0 items-center gap-3 rounded-xl border border-border bg-black/30 px-3.5 py-2 transition hover:border-zinc-500"
               >
@@ -566,7 +568,9 @@ export default function Home() {
                   </span>
                 </a>
                 <a
-                  href="/play-store"
+                  href="https://play.google.com/store/apps/details?id=com.listolabs.quickvault"
+                  target="_blank"
+                  rel="noreferrer"
                   aria-label="Play Store"
                   className="group flex h-12 w-44 shrink-0 items-center gap-3 rounded-xl border border-border bg-black/30 px-3.5 py-2 transition hover:border-zinc-500"
                 >
