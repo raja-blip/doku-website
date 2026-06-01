@@ -257,7 +257,7 @@ export default function Home() {
               Where is it? shouldn&apos;t be the start of your paperwork.
             </h1>
             <p className="max-w-xl text-base leading-relaxed text-zinc-300 sm:text-lg">
-              Organize documents by people and assets, and find what you need in seconds.
+              With Doku, organize documents by people and assets, and find what you need in seconds.
             </p>
             <div className="flex max-w-xl flex-col gap-3 sm:flex-row sm:flex-wrap sm:gap-2 lg:flex-nowrap lg:gap-3">
               <a
