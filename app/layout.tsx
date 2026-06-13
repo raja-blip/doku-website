@@ -16,7 +16,7 @@ const siteDescription =
   "Doku is a private, local-first document vault. Securely encrypt, classify, and manage your sensitive records on-device with zero-cloud access.";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://hellodoku.com"),
+  metadataBase: new URL("https://www.hellodoku.com"),
   title: "Doku | Your Private On-Device Document Vault",
   description: siteDescription,
   openGraph: {
