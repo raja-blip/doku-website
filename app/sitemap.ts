@@ -1,29 +1,28 @@
 import type { MetadataRoute } from "next";
-
-const siteUrl = "https://www.hellodoku.com";
+import { siteUrl } from "@/lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
-      url: siteUrl,
+      url: `${siteUrl}/`,
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 1,
     },
     {
-      url: `${siteUrl}/privacy-policy`,
+      url: `${siteUrl}/privacy-policy/`,
       lastModified: new Date(),
       changeFrequency: "yearly",
       priority: 0.3,
     },
     {
-      url: `${siteUrl}/support`,
+      url: `${siteUrl}/support/`,
       lastModified: new Date(),
       changeFrequency: "yearly",
       priority: 0.3,
     },
     {
-      url: `${siteUrl}/terms`,
+      url: `${siteUrl}/terms/`,
       lastModified: new Date(),
       changeFrequency: "yearly",
       priority: 0.3,

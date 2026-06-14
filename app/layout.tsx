@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { siteUrl } from "@/lib/site";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -16,23 +17,27 @@ const siteDescription =
   "Doku is a private, local-first document vault. Securely encrypt, classify, and manage your sensitive records on-device with zero-cloud access.";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.hellodoku.com"),
+  metadataBase: new URL(siteUrl),
+  alternates: {
+    canonical: "./",
+  },
   title: "Doku | Your Private On-Device Document Vault",
   description: siteDescription,
   openGraph: {
     type: "website",
+    url: "./",
     siteName: "doku",
     description: siteDescription,
     images: [
       {
-        url: "https://www.hellodoku.com/og-preview.png",
+        url: `${siteUrl}/og-preview.png`,
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
     description: siteDescription,
-    images: ["https://www.hellodoku.com/og-preview.png"],
+    images: [`${siteUrl}/og-preview.png`],
   },
 };
 
