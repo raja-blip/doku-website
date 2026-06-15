@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { listoLabsUrl } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Terms of Use | doku",
@@ -14,8 +15,11 @@ export default function TermsPage() {
 
         <div className="mt-8 space-y-6 text-sm leading-relaxed text-zinc-300 sm:text-base">
           <p>
-            Welcome to doku, a product by Listo Labs. By downloading, installing, or using doku, you agree to these
-            Terms.
+            Welcome to doku, a product by{" "}
+            <a className="text-sky-300 underline-offset-2 hover:underline" href={listoLabsUrl} target="_blank" rel="noreferrer">
+              Listo Labs
+            </a>
+            . By downloading, installing, or using doku, you agree to these Terms.
           </p>
 
           <div>
@@ -56,7 +60,11 @@ export default function TermsPage() {
           <div>
             <h2 className="text-base font-medium text-white sm:text-lg">5) Limitation of Liability</h2>
             <p className="mt-1">
-              To the maximum extent permitted by law, Listo Labs shall not be liable for any direct, indirect,
+              To the maximum extent permitted by law,{" "}
+              <a className="text-sky-300 underline-offset-2 hover:underline" href={listoLabsUrl} target="_blank" rel="noreferrer">
+                Listo Labs
+              </a>{" "}
+              shall not be liable for any direct, indirect,
               incidental, consequential, special, or punitive damages, or for any loss of data, loss of access, or
               security breach arising from or related to your use of doku, including but not limited to device
               compromise, credential disclosure, forgotten PIN, or third-party account issues.
@@ -91,7 +99,13 @@ export default function TermsPage() {
           </div>
         </div>
 
-        <p className="mt-10 text-sm text-zinc-400">Copyright - © 2026 Listo Labs. Built in India.</p>
+        <p className="mt-10 text-sm text-zinc-400">
+          Copyright - © 2026{" "}
+          <a className="text-sky-300 underline-offset-2 hover:underline" href={listoLabsUrl} target="_blank" rel="noreferrer">
+            Listo Labs
+          </a>
+          . Built in India.
+        </p>
       </section>
     </main>
   );

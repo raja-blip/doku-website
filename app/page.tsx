@@ -6,6 +6,7 @@ import { WalkthroughScreens } from "@/components/walkthrough-screens";
 import { PlaybookTabs } from "@/components/playbook-tabs";
 import { Reveal } from "@/components/reveal";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { listoLabsUrl } from "@/lib/site";
 import { BellDot, Files, Fingerprint, Users } from "lucide-react";
 import Image from "next/image";
 
@@ -243,14 +244,32 @@ export default function Home() {
           <div className="space-y-6">
             {heroBrandMockVariant === "refined-pill" ? (
               <p className="inline-flex rounded-full border border-sky-500/25 bg-sky-500/10 px-3.5 py-1 text-xs font-medium uppercase tracking-[0.16em] text-sky-200/90">
-                doku by Listolabs
+                doku by{" "}
+                <a
+                  href={listoLabsUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="underline-offset-2 hover:underline"
+                >
+                  Listolabs
+                </a>
               </p>
             ) : (
               <p className="inline-flex items-center gap-2 text-sm font-medium tracking-[0.08em] text-zinc-200">
                 <span className="rounded-full border border-sky-500/40 bg-sky-500/20 px-2 py-0.5 text-[11px] uppercase text-sky-200">
                   doku
                 </span>
-                <span className="uppercase text-zinc-400">by Listolabs</span>
+                <span className="uppercase text-zinc-400">
+                  by{" "}
+                  <a
+                    href={listoLabsUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-zinc-300 underline-offset-2 hover:text-white hover:underline"
+                  >
+                    Listolabs
+                  </a>
+                </span>
               </p>
             )}
             <h1 className="text-4xl font-semibold tracking-tight text-white sm:text-6xl">
@@ -528,7 +547,15 @@ export default function Home() {
                   height={18}
                   className="rounded-full"
                 />
-                Built by Listolabs
+                Built by{" "}
+                <a
+                  href={listoLabsUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-zinc-300 underline-offset-2 hover:text-white hover:underline"
+                >
+                  Listolabs
+                </a>
               </p>
               <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:gap-2 lg:flex-nowrap lg:gap-3">
                 <a
